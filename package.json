@@ -26,7 +26,6 @@
     "flow-typed": "flow-typed install",
     "docs": "documentation readme src --section=API",
     "clean": "del dist",
-    "postinstall": "npm run flow-typed",
     "prebuild": "npm run docs && npm run clean",
     "build": "babel src -d dist",
     "watch": "npm-watch",
