@@ -1,0 +1,6 @@
+[ignore]
+.*/dist
+.*/coverage
+
+[libs]
+/flow-typed
