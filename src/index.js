@@ -1,6 +1,7 @@
 // @flow
 import _get from 'lodash/get'
 import at from 'lodash/at'
+import values from 'lodash/values'
 import difference from 'lodash/difference'
 
 /**
@@ -34,7 +35,7 @@ export const ifProp = (needle: string | string[] | Object, pass?: any, fail?: an
       result = !at(props, needle).filter(value => !value).length
     } else if (typeof needle === 'object') {
       const needleKeys = Object.keys(needle)
-      const needleValues = Object.values(needle)
+      const needleValues = values(needle)
       result = !difference(at(props, needleKeys), needleValues).length
     } else {
       result = _get(props, needle)
