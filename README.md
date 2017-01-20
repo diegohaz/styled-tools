@@ -37,7 +37,7 @@ const Button = styled.button`
 
 ### get
 
-Returns the value of props[path] or defaultValue
+Returns the value of `props[path]` or `defaultValue`
 
 **Parameters**
 
@@ -52,9 +52,11 @@ const Button = styled.button`
 `
 ```
 
+Returns **any** 
+
 ### ifProp
 
-Returns pass if prop is truthy. Otherwise returns fail
+Returns `pass` if prop is truthy. Otherwise returns `fail`
 
 **Parameters**
 
@@ -76,6 +78,8 @@ const Button = styled.button`
  font-size: ${ifProp({ size: 'large' }, '20px', ifProp({ size: 'medium' }, '16px', '12px'))};
 `
 ```
+
+Returns **any** 
 
 ## License
 

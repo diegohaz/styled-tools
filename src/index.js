@@ -4,7 +4,7 @@ import at from 'lodash/at'
 import difference from 'lodash/difference'
 
 /**
- * Returns the value of props[path] or defaultValue
+ * Returns the value of `props[path]` or `defaultValue`
  * @example
  * const Button = styled.button`
  *  color: ${get('color', 'red')};
@@ -14,7 +14,7 @@ export const get = (path: string | string[], defaultValue?: any): any =>
   (props: Object = {}) => _get(props, path, defaultValue)
 
 /**
- * Returns pass if prop is truthy. Otherwise returns fail
+ * Returns `pass` if prop is truthy. Otherwise returns `fail`
  * @example
  * // usage with styled-theme
  * import styled from 'styled-components'
