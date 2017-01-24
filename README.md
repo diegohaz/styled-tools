@@ -11,6 +11,8 @@ Utilities for [styled-components](https://github.com/styled-components/styled-co
 
 ## Usage
 
+Play with it on [WebpackBin](http://www.webpackbin.com/4kfBpslDG)
+
 ```jsx
 import styled from 'styled-components'
 import { get, ifProp } from 'styled-tools'
