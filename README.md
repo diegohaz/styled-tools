@@ -82,6 +82,10 @@ const Button = styled.button`
 
 Returns **any** 
 
+## Related
+
+- [styled-theme](https://github.com/diegohaz/styled-theme) - Extensible theming system for styled-components
+
 ## License
 
 MIT © [Diego Haz](https://github.com/diegohaz)
