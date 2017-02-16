@@ -11,14 +11,14 @@ Utilities for [styled-components](https://github.com/styled-components/styled-co
 
 ## Usage
 
-Play with it on [WebpackBin](http://www.webpackbin.com/4kfBpslDG)
+Play with it on [WebpackBin](http://www.webpackbin.com/41X3UFAuf)
 
 ```jsx
 import styled from 'styled-components'
-import { get, ifProp } from 'styled-tools'
+import { prop, ifProp } from 'styled-tools'
 
 const Button = styled.button`
-  color: ${get('color', 'red')};
+  color: ${prop('color', 'red')};
   font-size: ${ifProp({ size: 'large' }, '20px', '14px')};
 `
 

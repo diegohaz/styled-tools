@@ -1,4 +1,32 @@
-import { get, ifProp } from '../src'
+import { prop, get, ifProp } from '../src'
+
+describe('prop', () => {
+  it('handles string', () => {
+    expect(prop('color')()).toBeUndefined()
+    expect(prop('color')({})).toBeUndefined()
+    expect(prop('color')({ color: 'red' })).toBe('red')
+  })
+
+  it('handles deep string', () => {
+    expect(prop('color.primary')()).toBeUndefined()
+    expect(prop('color.primary')({})).toBeUndefined()
+    expect(prop('color.primary')({ color: {} })).toBeUndefined()
+    expect(prop('color.primary')({ color: { primary: 'red' } })).toBe('red')
+  })
+
+  it('handles array', () => {
+    expect(prop(['color', 'primary'])()).toBeUndefined()
+    expect(prop(['color', 'primary'])({})).toBeUndefined()
+    expect(prop(['color', 'primary'])({ color: {} })).toBeUndefined()
+    expect(prop(['color', 'primary'])({ color: { primary: 'red' } })).toBe('red')
+  })
+
+  it('handles defaultValue', () => {
+    expect(prop('color', 'red')()).toBe('red')
+    expect(prop('color', 'red')({})).toBe('red')
+    expect(prop('color', 'red')({ color: 'blue' })).toBe('blue')
+  })
+})
 
 describe('get', () => {
   it('handles string', () => {
