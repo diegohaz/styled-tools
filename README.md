@@ -4,7 +4,7 @@
 [![NPM version](https://img.shields.io/npm/v/styled-tools.svg?style=flat-square)](https://npmjs.org/package/styled-tools)
 [![Build Status](https://img.shields.io/travis/diegohaz/styled-tools/master.svg?style=flat-square)](https://travis-ci.org/diegohaz/styled-tools) [![Coverage Status](https://img.shields.io/codecov/c/github/diegohaz/styled-tools/master.svg?style=flat-square)](https://codecov.io/gh/diegohaz/styled-tools/branch/master)
 
-Utilities for [styled-components](https://github.com/styled-components/styled-components) 💅
+Useful interpolated functions for [styled-components](https://github.com/styled-components/styled-components) 💅
 
 ## Install
 
@@ -31,6 +31,20 @@ const Button = styled.button`
 
 // renders with font-size: 20px
 <Button size="large" />
+```
+
+A more complex example:
+```jsx
+const Button = styled.button`
+  color: ${prop('color', 'white')};
+  font-size: ${ifProp({ size: 'large' }, prop('largeSize', '20px'), prop('size', '14px'))};
+  background-color: ${prop('backgroundColor', 'black')};
+  
+  ${ifProp('disabled', css`
+    background-color: ${prop('disabledBackgroundColor', 'gray')};
+    pointer-events: none;
+  `)}
+`
 ```
 
 ## API
