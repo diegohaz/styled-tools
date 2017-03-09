@@ -12,7 +12,7 @@ Useful interpolated functions for [styled-components](https://github.com/styled-
 
 ## Usage
 
-Play with it on [WebpackBin](http://www.webpackbin.com/41X3UFAuf)
+Play with it on [WebpackBin](https://www.webpackbin.com/bins/-Kel3KgddZSrD5oK0fIk)
 
 ```jsx
 import styled from 'styled-components'
