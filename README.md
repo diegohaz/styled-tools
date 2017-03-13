@@ -36,12 +36,12 @@ const Button = styled.button`
 A more complex example:
 ```jsx
 const Button = styled.button`
-  color: ${prop('color', 'white')};
-  font-size: ${ifProp({ size: 'large' }, prop('largeSize', '20px'), prop('size', '14px'))};
-  background-color: ${prop('backgroundColor', 'black')};
+  color: ${prop('theme.colors.white', 'white')};
+  font-size: ${ifProp({ size: 'large' }, prop('theme.sizes.lg', '20px'), prop('theme.sizes.md', '14px'))};
+  background-color: ${prop('tgeme.colors.black', 'black')};
   
   ${ifProp('disabled', css`
-    background-color: ${prop('disabledBackgroundColor', 'gray')};
+    background-color: ${prop('theme.colors.gray', 'gray')};
     pointer-events: none;
   `)}
 `
