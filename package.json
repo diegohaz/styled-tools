@@ -64,7 +64,7 @@
     "eslint-plugin-flowtype": "^2.29.2",
     "eslint-plugin-flowtype-errors": "^3.0.0",
     "eslint-plugin-import": "^2.2.0",
-    "flow-bin": "^0.46.0",
+    "flow-bin": "^0.47.0",
     "flow-typed": "^2.0.0",
     "jest-cli": "^20.0.2",
     "npm-watch": "^0.1.7",
