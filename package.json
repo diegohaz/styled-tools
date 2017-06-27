@@ -67,7 +67,7 @@
     "flow-bin": "^0.48.0",
     "flow-typed": "^2.0.0",
     "jest-cli": "^20.0.2",
-    "npm-watch": "^0.1.7",
+    "npm-watch": "^0.2.0",
     "opn-cli": "^3.1.0"
   }
 }
