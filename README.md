@@ -15,12 +15,27 @@ Useful interpolated functions for [styled-components](https://github.com/styled-
 Play with it on [WebpackBin](https://www.webpackbin.com/bins/-Kel3KgddZSrD5oK0fIk)
 
 ```jsx
-import styled from 'styled-components'
-import { prop, ifProp } from 'styled-tools'
+import styled, { css } from 'styled-components'
+import { prop, ifProp, switchProp } from 'styled-tools'
 
 const Button = styled.button`
   color: ${prop('color', 'red')};
   font-size: ${ifProp({ size: 'large' }, '20px', '14px')};
+
+  ${switchProp('theme', {
+    dark: css`
+      background-color: blue;
+      border: 1px solid blue;
+    `,
+    darker: css`
+      background-color: mediumblue;
+      border: 1px solid mediumblue;
+    `,
+    darkest: css`
+      background-color: darkblue;
+      border: 1px solid darkblue;
+    `,
+  })};
 `
 
 // renders with color: blue
@@ -31,6 +46,9 @@ const Button = styled.button`
 
 // renders with font-size: 20px
 <Button size="large" />
+
+// renders with background-color: mediumblue & border: 1px solid mediumblue
+<Button theme="darker">
 ```
 
 A more complex example:
@@ -93,6 +111,42 @@ const Button = styled.button`
  color: ${ifProp(['transparent', 'accent'], palette('secondary', 0))};
  font-size: ${ifProp({ size: 'large' }, '20px', ifProp({ size: 'medium' }, '16px', '12px'))};
 `
+```
+
+Returns **any** 
+
+### switchProp
+
+Switches on a given prop. Returns the value or function for a given prop value.
+
+**Parameters**
+
+-   `needle` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
+-   `switches` **[Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)** 
+
+**Examples**
+
+```javascript
+import styled, { css } from 'styled-components'
+import { switchProp } from 'styled-theme'
+
+const Button = styled.button`
+ font-size: ${switchProp('size', {
+   small: prop('theme.sizes.sm', '12px'),
+   large: prop('theme.sizes.lg', '20px'),
+   default: prop('theme.sizes.md', '16px'),
+ })};
+ ${switchProp('theme.kind', {
+   light: css`
+     color: LightBlue;
+   `,
+   dark: css`
+     color: DarkBlue;
+   `,
+ })}
+`
+
+<Button size="large" theme={{ kind: 'light' }} />
 ```
 
 Returns **any** 

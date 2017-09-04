@@ -1,4 +1,4 @@
-import { prop, get, ifProp } from '../src'
+import { prop, get, ifProp, switchProp } from '../src'
 
 describe('prop', () => {
   it('handles string', () => {
@@ -90,5 +90,18 @@ describe('ifProp', () => {
   it('handles deep object needle', () => {
     expect(ifProp({ 'foo.bar': 'ok' }, 'yes', 'no')({ foo: { bar: 'ok' } })).toBe('yes')
     expect(ifProp({ 'foo.bar': 'ok' }, 'yes', 'no')({ foo: { bar: 'no' } })).toBe('no')
+  })
+})
+
+describe('switchProp', () => {
+  it('handles switching', () => {
+    expect(switchProp('type', { red: 'red', blue: 'blue' })()).toBeUndefined()
+    expect(switchProp('type', { red: 'red', blue: 'blue' })({ type: 'red' })).toBe('red')
+    expect(switchProp('type', { red: 'red', blue: 'blue' })({ type: 'blue' })).toBe('blue')
+  })
+
+  it('handles deep switching', () => {
+    expect(switchProp('foo.bar', { red: 'red', blue: 'blue' })({ foo: { bar: 'red' } })).toBe('red')
+    expect(switchProp('foo.bar', { red: 'red', blue: 'blue' })({ foo: { bar: 'blue' } })).toBe('blue')
   })
 })
