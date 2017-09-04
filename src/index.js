@@ -44,3 +44,33 @@ export const ifProp = (needle: string | string[] | Object, pass?: any, fail?: an
     }
     return result ? pass : fail
   }
+
+/**
+ * Switches on a given prop. Returns the value or function for a given prop value.
+ * @example
+ * import styled, { css } from 'styled-components'
+ * import { switchProp } from 'styled-theme'
+ *
+ * const Button = styled.button`
+ *  font-size: ${switchProp('size', {
+ *    small: prop('theme.sizes.sm', '12px'),
+ *    large: prop('theme.sizes.lg', '20px'),
+ *    default: prop('theme.sizes.md', '16px'),
+ *  })};
+ *  ${switchProp('theme.kind', {
+ *    light: css`
+ *      color: LightBlue;
+ *    `,
+ *    dark: css`
+ *      color: DarkBlue;
+ *    `,
+ *  })}
+ * `
+ *
+ * <Button size="large" theme={{ kind: 'light' }} />
+ */
+export const switchProp = (needle: string, switches: Object): any =>
+  (props: Object = {}): any => {
+    const propType = _get(props, needle)
+    return _get(switches, propType)
+  }
