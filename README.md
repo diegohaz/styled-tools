@@ -22,7 +22,7 @@ const Button = styled.button`
   color: ${prop('color', 'red')};
   font-size: ${ifProp({ size: 'large' }, '20px', '14px')};
 
-  ${switchProp('type', {
+  ${switchProp('theme', {
     dark: css`
       background-color: blue;
       border: 1px solid blue;
@@ -48,7 +48,7 @@ const Button = styled.button`
 <Button size="large" />
 
 // renders with background-color: mediumblue & border: 1px solid mediumblue
-<Button type="darker">
+<Button theme="darker">
 ```
 
 A more complex example:
