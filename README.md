@@ -21,20 +21,10 @@ import { prop, ifProp, switchProp } from 'styled-tools'
 const Button = styled.button`
   color: ${prop('color', 'red')};
   font-size: ${ifProp({ size: 'large' }, '20px', '14px')};
-
-  ${switchProp('theme', {
-    dark: css`
-      background-color: blue;
-      border: 1px solid blue;
-    `,
-    darker: css`
-      background-color: mediumblue;
-      border: 1px solid mediumblue;
-    `,
-    darkest: css`
-      background-color: darkblue;
-      border: 1px solid darkblue;
-    `,
+  background-color: ${switchProp('theme', {
+    dark: 'blue', 
+    darker: 'mediumblue', 
+    darkest: 'darkblue' 
   })};
 `
 
@@ -47,8 +37,8 @@ const Button = styled.button`
 // renders with font-size: 20px
 <Button size="large" />
 
-// renders with background-color: mediumblue & border: 1px solid mediumblue
-<Button theme="darker">
+// renders with background-color: mediumblue
+<Button theme="darker" />
 ```
 
 A more complex example:
@@ -58,8 +48,24 @@ const Button = styled.button`
   font-size: ${ifProp({ size: 'large' }, prop('theme.sizes.lg', '20px'), prop('theme.sizes.md', '14px'))};
   background-color: ${prop('theme.colors.black', '#000')};
   
+  ${switchProp('kind', {
+    dark: css`
+      background-color: ${prop('theme.colors.blue', 'blue')};
+      border: 1px solid ${prop('theme.colors.blue', 'blue')};
+    `,
+    darker: css`
+      background-color: ${prop('theme.colors.blue', 'mediumblue')};
+      border: 1px solid ${prop('theme.colors.blue', 'mediumblue')};
+    `,
+    darkest: css`
+      background-color: ${prop('theme.colors.blue', 'darkblue')};
+      border: 1px solid ${prop('theme.colors.blue', 'darkblue')};
+    `,
+  })}
+  
   ${ifProp('disabled', css`
     background-color: ${prop('theme.colors.gray', '#999')};
+    border-color: ${prop('theme.colors.gray', '#999')};
     pointer-events: none;
   `)}
 `
