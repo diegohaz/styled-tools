@@ -54,12 +54,12 @@ const Button = styled.button`
       border: 1px solid ${prop('theme.colors.blue', 'blue')};
     `,
     darker: css`
-      background-color: ${prop('theme.colors.blue', 'mediumblue')};
-      border: 1px solid ${prop('theme.colors.blue', 'mediumblue')};
+      background-color: ${prop('theme.colors.mediumblue', 'mediumblue')};
+      border: 1px solid ${prop('theme.colors.mediumblue', 'mediumblue')};
     `,
     darkest: css`
-      background-color: ${prop('theme.colors.blue', 'darkblue')};
-      border: 1px solid ${prop('theme.colors.blue', 'darkblue')};
+      background-color: ${prop('theme.colors.darkblue', 'darkblue')};
+      border: 1px solid ${prop('theme.colors.darkblue', 'darkblue')};
     `,
   })}
   
