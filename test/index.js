@@ -1,4 +1,4 @@
-import { prop, get, ifProp, switchProp } from '../src'
+import { prop, ifProp, switchProp } from '../src'
 
 describe('prop', () => {
   it('handles string', () => {
@@ -25,34 +25,6 @@ describe('prop', () => {
     expect(prop('color', 'red')()).toBe('red')
     expect(prop('color', 'red')({})).toBe('red')
     expect(prop('color', 'red')({ color: 'blue' })).toBe('blue')
-  })
-})
-
-describe('get', () => {
-  it('handles string', () => {
-    expect(get('color')()).toBeUndefined()
-    expect(get('color')({})).toBeUndefined()
-    expect(get('color')({ color: 'red' })).toBe('red')
-  })
-
-  it('handles deep string', () => {
-    expect(get('color.primary')()).toBeUndefined()
-    expect(get('color.primary')({})).toBeUndefined()
-    expect(get('color.primary')({ color: {} })).toBeUndefined()
-    expect(get('color.primary')({ color: { primary: 'red' } })).toBe('red')
-  })
-
-  it('handles array', () => {
-    expect(get(['color', 'primary'])()).toBeUndefined()
-    expect(get(['color', 'primary'])({})).toBeUndefined()
-    expect(get(['color', 'primary'])({ color: {} })).toBeUndefined()
-    expect(get(['color', 'primary'])({ color: { primary: 'red' } })).toBe('red')
-  })
-
-  it('handles defaultValue', () => {
-    expect(get('color', 'red')()).toBe('red')
-    expect(get('color', 'red')({})).toBe('red')
-    expect(get('color', 'red')({ color: 'blue' })).toBe('blue')
   })
 })
 

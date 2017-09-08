@@ -42,6 +42,7 @@ const Button = styled.button`
 ```
 
 A more complex example:
+
 ```jsx
 const Button = styled.button`
   color: ${prop('theme.colors.white', '#fff')};
@@ -134,7 +135,7 @@ Switches on a given prop. Returns the value or function for a given prop value.
 
 ```javascript
 import styled, { css } from 'styled-components'
-import { switchProp } from 'styled-theme'
+import { switchProp } from 'styled-tools'
 
 const Button = styled.button`
  font-size: ${switchProp('size', {

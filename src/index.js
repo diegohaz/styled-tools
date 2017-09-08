@@ -14,7 +14,10 @@ import difference from 'lodash/difference'
 export const prop = (path: string | string[], defaultValue?: any): any =>
   (props: Object = {}) => _get(props, path, defaultValue)
 
-export const get = prop
+export const get = /* istanbul ignore next */ (...args: any[]) => {
+  console.warn('[styled-tools] `get` is deprecated. Please, use `prop` instead.')
+  return prop(...args)
+}
 
 /**
  * Returns `pass` if prop is truthy. Otherwise returns `fail`
@@ -49,7 +52,7 @@ export const ifProp = (needle: string | string[] | Object, pass?: any, fail?: an
  * Switches on a given prop. Returns the value or function for a given prop value.
  * @example
  * import styled, { css } from 'styled-components'
- * import { switchProp } from 'styled-theme'
+ * import { switchProp } from 'styled-tools'
  *
  * const Button = styled.button`
  *  font-size: ${switchProp('size', {
