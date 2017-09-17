@@ -158,6 +158,30 @@ const Button = styled.button`
 
 Returns **any** 
 
+### call
+
+Calls a function passing properties values as arguments.
+
+**Parameters**
+
+-   `fn` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** 
+-   `propFns` **...[Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)>** 
+
+**Examples**
+
+```javascript
+// example with polished
+import styled from 'styled-components'
+import { darken } from 'polished'
+import { call, prop } from 'styled-tools'
+
+const Button = styled.button`
+ border-color: ${call(darken(0.5), prop('theme.primaryColor', 'blue'))};
+`
+```
+
+Returns **any** 
+
 ## Related
 
 -   [styled-theme](https://github.com/diegohaz/styled-theme) - Extensible theming system for styled-components
