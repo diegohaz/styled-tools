@@ -77,3 +77,20 @@ export const switchProp = (needle: string, switches: Object): any =>
     const propType = _get(props, needle)
     return _get(switches, propType)
   }
+
+/**
+ * Calls a function passing properties values as arguments.
+ * @example
+ * // example with polished
+ * import styled from 'styled-components'
+ * import { darken } from 'polished'
+ * import { call, prop } from 'styled-tools'
+ *
+ * const Button = styled.button`
+ *  border-color: ${call(darken(0.5), prop('theme.primaryColor', 'blue'))};
+ * `
+ */
+export const call = (fn: Function, ...args: any[]): any =>
+  (props: Object = {}): any => fn(...args.map(arg => (
+    typeof arg === 'function' ? arg(props) : arg
+  )))

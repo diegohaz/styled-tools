@@ -58,7 +58,7 @@
     "babel-preset-env": "^1.1.8",
     "babel-preset-stage-2": "^6.18.0",
     "del-cli": "^1.0.0",
-    "documentation": "^4.0.0-beta.18",
+    "documentation": "^5.3.2",
     "eslint": "^3.14.0",
     "eslint-config-airbnb-base": "^11.0.1",
     "eslint-plugin-flowtype": "^2.29.2",
