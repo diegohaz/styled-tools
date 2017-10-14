@@ -4,13 +4,13 @@
 [![NPM version](https://img.shields.io/npm/v/styled-tools.svg?style=flat-square)](https://npmjs.org/package/styled-tools)
 [![Build Status](https://img.shields.io/travis/diegohaz/styled-tools/master.svg?style=flat-square)](https://travis-ci.org/diegohaz/styled-tools) [![Coverage Status](https://img.shields.io/codecov/c/github/diegohaz/styled-tools/master.svg?style=flat-square)](https://codecov.io/gh/diegohaz/styled-tools/branch/master)
 
-<br />
+<p>
 
 <a target='_blank' rel='nofollow' href='https://app.codesponsor.io/link/tyWoocmAMXP82QQzh26Huzgu/diegohaz/styled-tools'>
   <img alt='Sponsor' width='888' height='68' src='https://app.codesponsor.io/embed/tyWoocmAMXP82QQzh26Huzgu/diegohaz/styled-tools.svg' />
 </a>
 
-<br /><br />
+</p>
 
 Useful interpolated functions for [styled-components](https://github.com/styled-components/styled-components) 💅
 
