@@ -76,6 +76,11 @@ describe('switchProp', () => {
     expect(switchProp('foo.bar', { red: 'red', blue: 'blue' })({ foo: { bar: 'red' } })).toBe('red')
     expect(switchProp('foo.bar', { red: 'red', blue: 'blue' })({ foo: { bar: 'blue' } })).toBe('blue')
   })
+
+  it('handles default case', () => {
+    expect(switchProp('color', { red: 'red', blue: 'blue' }, 'green')()).toBe('green')
+    expect(switchProp('color', { red: 'red', blue: 'blue' }, 'green')({ color: 'yellow' })).toBe('green')
+  })
 })
 
 describe('call', () => {
