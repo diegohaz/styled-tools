@@ -125,11 +125,13 @@ Returns **any**
 ### switchProp
 
 Switches on a given prop. Returns the value or function for a given prop value.
+Otherwise returns `defaultValue`
 
 **Parameters**
 
 -   `needle` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
 -   `switches` **[Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)** 
+-   `defaultValue` **any** 
 
 **Examples**
 
@@ -140,9 +142,10 @@ import { switchProp } from 'styled-tools'
 const Button = styled.button`
  font-size: ${switchProp('size', {
    small: prop('theme.sizes.sm', '12px'),
-   large: prop('theme.sizes.lg', '20px'),
-   default: prop('theme.sizes.md', '16px'),
- })};
+   large: prop('theme.sizes.lg', '20px')
+ },
+   prop('theme.sizes.md', '16px')
+ )};
  ${switchProp('theme.kind', {
    light: css`
      color: LightBlue;
