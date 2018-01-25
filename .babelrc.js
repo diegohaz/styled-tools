@@ -9,7 +9,7 @@ module.exports = {
       },
       modules
     }],
-    'stage-2',
+    'stage-1',
   ],
   plugins: ['transform-flow-strip-types'],
 };
