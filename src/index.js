@@ -1,5 +1,5 @@
 // @flow
-import _get from 'lodash/get'
+import get from 'lodash/get'
 import at from 'lodash/at'
 import values from 'lodash/values'
 import difference from 'lodash/difference'
@@ -12,12 +12,7 @@ import difference from 'lodash/difference'
  * `
  */
 export const prop = (path: string | string[], defaultValue?: any): any =>
-  (props: Object = {}) => _get(props, path, defaultValue)
-
-export const get = /* istanbul ignore next */ (...args: any[]) => {
-  console.warn('[styled-tools] `get` is deprecated. Please, use `prop` instead.')
-  return prop(...args)
-}
+  (props: Object = {}) => get(props, path, defaultValue)
 
 /**
  * Returns `pass` if prop is truthy. Otherwise returns `fail`
@@ -43,7 +38,7 @@ export const ifProp = (needle: string | string[] | Object, pass?: any, fail?: an
       const needleValues = values(needle)
       result = !difference(at(props, needleKeys), needleValues).length
     } else {
-      result = _get(props, needle)
+      result = get(props, needle)
     }
     return result ? pass : fail
   }
@@ -76,8 +71,8 @@ export const ifProp = (needle: string | string[] | Object, pass?: any, fail?: an
  */
 export const switchProp = (needle: string, switches: Object, defaultValue?: any): any =>
   (props: Object = {}): any => {
-    const propType = _get(props, needle)
-    return _get(switches, propType, defaultValue)
+    const propType = get(props, needle)
+    return get(switches, propType, defaultValue)
   }
 
 /**
