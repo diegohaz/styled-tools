@@ -80,8 +80,10 @@ const Button = styled.button`
 
 -   [prop](#prop)
 -   [ifProp](#ifprop)
+-   [withProp](#withprop)
 -   [switchProp](#switchprop)
--   [call](#call)
+-   [Types](#types)
+    -   [Needle](#needle)
 
 ### prop
 
@@ -108,7 +110,7 @@ Returns `pass` if prop is truthy. Otherwise returns `fail`
 
 **Parameters**
 
--   `needle` **([string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String) \| [Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)> | [Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object))** 
+-   `test` **([Needle](#needle) \| [Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object))** 
 -   `pass` **any** 
 -   `fail` **any** 
 
@@ -121,9 +123,34 @@ import { ifProp } from 'styled-tools'
 import { palette } from 'styled-theme'
 
 const Button = styled.button`
- background-color: ${ifProp('transparent', 'transparent', palette(0))};
- color: ${ifProp(['transparent', 'accent'], palette('secondary', 0))};
- font-size: ${ifProp({ size: 'large' }, '20px', ifProp({ size: 'medium' }, '16px', '12px'))};
+  background-color: ${ifProp('transparent', 'transparent', palette(0))};
+  color: ${ifProp(['transparent', 'accent'], palette('secondary', 0))};
+  font-size: ${ifProp({ size: 'large' }, '20px', ifProp({ size: 'medium' }, '16px', '12px'))};
+`
+```
+
+Returns **any** 
+
+### withProp
+
+Calls a function passing properties values as arguments.
+
+**Parameters**
+
+-   `needle` **[Needle](#needle)** 
+-   `fn` **[Function](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function)** 
+
+**Examples**
+
+```javascript
+// example with polished
+import styled from 'styled-components'
+import { darken } from 'polished'
+import { withProp, prop } from 'styled-tools'
+
+const Button = styled.button`
+  border-color: ${withProp(prop('theme.primaryColor', 'blue'), darken(0.5))};
+  font-size: ${withProp('theme.size', size => `${size + 1}px`)};
 `
 ```
 
@@ -136,23 +163,22 @@ Otherwise returns `defaultValue`
 
 **Parameters**
 
--   `needle` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** 
+-   `needle` **[Needle](#needle)** 
 -   `switches` **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** 
--   `defaultValue` **any** 
+-   `defaultValue` **any** _deprecated_
 
 **Examples**
 
 ```javascript
 import styled, { css } from 'styled-components'
-import { switchProp } from 'styled-tools'
+import { switchProp, prop } from 'styled-tools'
 
 const Button = styled.button`
- font-size: ${switchProp('size', {
+ font-size: ${switchProp(prop('size', 'medium'), {
    small: prop('theme.sizes.sm', '12px'),
-   large: prop('theme.sizes.lg', '20px')
- },
-   prop('theme.sizes.md', '16px')
- )};
+   medium: prop('theme.sizes.md', '16px'),
+   large: prop('theme.sizes.lg', '20px'),
+ }};
  ${switchProp('theme.kind', {
    light: css`
      color: LightBlue;
@@ -168,29 +194,14 @@ const Button = styled.button`
 
 Returns **any** 
 
-### call
+### Types
 
-Calls a function passing properties values as arguments.
 
-**Parameters**
 
--   `fn` **[Function](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function)** 
--   `args` **...[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;any>** 
 
-**Examples**
+#### Needle
 
-```javascript
-// example with polished
-import styled from 'styled-components'
-import { darken } from 'polished'
-import { call, prop } from 'styled-tools'
-
-const Button = styled.button`
- border-color: ${call(darken(0.5), prop('theme.primaryColor', 'blue'))};
-`
-```
-
-Returns **any** 
+Type: ([string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String) \| [Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)> | [Function](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function))
 
 ## Related
 
