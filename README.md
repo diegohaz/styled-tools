@@ -6,6 +6,8 @@
 
 Useful interpolated functions for [styled-components](https://github.com/styled-components/styled-components) 💅
 
+> **Shameless self promotion**: If you are using `styled-components`, have a look at https://github.com/diegohaz/reas, a minimalist and highly customizable UI toolkit for React.
+
 ## Install
 
     $ npm install --save styled-tools
