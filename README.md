@@ -206,9 +206,6 @@ Returns **any**
 
 Type: ([string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String) \| [Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)> | [Function](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function))
 
-## Related
-
--   [styled-theme](https://github.com/diegohaz/styled-theme) - Extensible theming system for styled-components
 
 ## License
 
