@@ -63,14 +63,17 @@
     "documentation": "^6.1.0",
     "eslint": "^4.15.0",
     "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-config-prettier": "^2.9.0",
     "eslint-plugin-flowtype": "^2.29.2",
     "eslint-plugin-flowtype-errors": "^3.0.0",
     "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-prettier": "^2.6.0",
     "flow-bin": "^0.69.0",
     "flow-typed": "^2.0.0",
     "jest-cli": "^22.0.6",
     "npm-watch": "^0.3.0",
     "opn-cli": "^3.1.0",
+    "prettier": "^1.11.1",
     "rimraf": "^2.6.2"
   }
 }

@@ -18,18 +18,18 @@ Useful interpolated functions for [styled-components](https://github.com/styled-
 Play with it on [WebpackBin](https://www.webpackbin.com/bins/-Kel3KgddZSrD5oK0fIk)
 
 ```jsx
-import styled, { css } from 'styled-components'
-import { prop, ifProp, switchProp } from 'styled-tools'
+import styled, { css } from "styled-components";
+import { prop, ifProp, switchProp } from "styled-tools";
 
 const Button = styled.button`
-  color: ${prop('color', 'red')};
-  font-size: ${ifProp({ size: 'large' }, '20px', '14px')};
-  background-color: ${switchProp('theme', {
-    dark: 'blue', 
-    darker: 'mediumblue', 
-    darkest: 'darkblue' 
+  color: ${prop("color", "red")};
+  font-size: ${ifProp({ size: "large" }, "20px", "14px")};
+  background-color: ${switchProp("theme", {
+    dark: "blue", 
+    darker: "mediumblue", 
+    darkest: "darkblue" 
   })};
-`
+`;
 
 // renders with color: blue
 <Button color="blue" />
@@ -48,31 +48,31 @@ A more complex example:
 
 ```jsx
 const Button = styled.button`
-  color: ${prop('theme.colors.white', '#fff')};
-  font-size: ${ifProp({ size: 'large' }, prop('theme.sizes.lg', '20px'), prop('theme.sizes.md', '14px'))};
-  background-color: ${prop('theme.colors.black', '#000')};
+  color: ${prop("theme.colors.white", "#fff")};
+  font-size: ${ifProp({ size: "large" }, prop("theme.sizes.lg", "20px"), prop("theme.sizes.md", "14px"))};
+  background-color: ${prop("theme.colors.black", "#000")};
   
-  ${switchProp('kind', {
+  ${switchProp("kind", {
     dark: css`
-      background-color: ${prop('theme.colors.blue', 'blue')};
-      border: 1px solid ${prop('theme.colors.blue', 'blue')};
+      background-color: ${prop("theme.colors.blue", "blue")};
+      border: 1px solid ${prop("theme.colors.blue", "blue")};
     `,
     darker: css`
-      background-color: ${prop('theme.colors.mediumblue', 'mediumblue')};
-      border: 1px solid ${prop('theme.colors.mediumblue', 'mediumblue')};
+      background-color: ${prop("theme.colors.mediumblue", "mediumblue")};
+      border: 1px solid ${prop("theme.colors.mediumblue", "mediumblue")};
     `,
     darkest: css`
-      background-color: ${prop('theme.colors.darkblue', 'darkblue')};
-      border: 1px solid ${prop('theme.colors.darkblue', 'darkblue')};
-    `,
+      background-color: ${prop("theme.colors.darkblue", "darkblue")};
+      border: 1px solid ${prop("theme.colors.darkblue", "darkblue")};
+    `
   })}
   
-  ${ifProp('disabled', css`
-    background-color: ${prop('theme.colors.gray', '#999')};
-    border-color: ${prop('theme.colors.gray', '#999')};
+  ${ifProp("disabled", css`
+    background-color: ${prop("theme.colors.gray", "#999")};
+    border-color: ${prop("theme.colors.gray", "#999")};
     pointer-events: none;
   `)}
-`
+`;
 ```
 
 ## API
@@ -101,8 +101,8 @@ Returns the value of `props[path]` or `defaultValue`
 
 ```javascript
 const Button = styled.button`
- color: ${prop('color', 'red')};
-`
+ color: ${prop("color", "red")};
+`;
 ```
 
 Returns **any** 
@@ -121,15 +121,15 @@ Returns `pass` if prop is truthy. Otherwise returns `fail`
 
 ```javascript
 // usage with styled-theme
-import styled from 'styled-components'
-import { ifProp } from 'styled-tools'
-import { palette } from 'styled-theme'
+import styled from "styled-components";
+import { ifProp } from "styled-tools";
+import { palette } from "styled-theme";
 
 const Button = styled.button`
-  background-color: ${ifProp('transparent', 'transparent', palette(0))};
-  color: ${ifProp(['transparent', 'accent'], palette('secondary', 0))};
-  font-size: ${ifProp({ size: 'large' }, '20px', ifProp({ size: 'medium' }, '16px', '12px'))};
-`
+  background-color: ${ifProp("transparent", "transparent", palette(0))};
+  color: ${ifProp(["transparent", "accent"], palette("secondary", 0))};
+  font-size: ${ifProp({ size: "large" }, "20px", ifProp({ size: "medium" }, "16px", "12px"))};
+`;
 ```
 
 Returns **any** 
@@ -147,15 +147,15 @@ Calls a function passing properties values as arguments.
 
 ```javascript
 // example with polished
-import styled from 'styled-components'
-import { darken } from 'polished'
-import { withProp, prop } from 'styled-tools'
+import styled from "styled-components";
+import { darken } from "polished";
+import { withProp, prop } from "styled-tools";
 
 const Button = styled.button`
-  border-color: ${withProp(prop('theme.primaryColor', 'blue'), darken(0.5))};
-  font-size: ${withProp('theme.size', size => `${size + 1}px`)};
-  background: ${withProp(['foo', 'bar'], (foo, bar) => `${foo}${bar}`)};
-`
+  border-color: ${withProp(prop("theme.primaryColor", "blue"), darken(0.5))};
+  font-size: ${withProp("theme.size", size => `${size + 1}px`)};
+  background: ${withProp(["foo", "bar"], (foo, bar) => `${foo}${bar}`)};
+`;
 ```
 
 Returns **any** 
@@ -163,7 +163,6 @@ Returns **any**
 ### switchProp
 
 Switches on a given prop. Returns the value or function for a given prop value.
-Otherwise returns `defaultValue`
 
 **Parameters**
 
@@ -173,26 +172,26 @@ Otherwise returns `defaultValue`
 **Examples**
 
 ```javascript
-import styled, { css } from 'styled-components'
-import { switchProp, prop } from 'styled-tools'
+import styled, { css } from "styled-components";
+import { switchProp, prop } from "styled-tools";
 
 const Button = styled.button`
- font-size: ${switchProp(prop('size', 'medium'), {
-   small: prop('theme.sizes.sm', '12px'),
-   medium: prop('theme.sizes.md', '16px'),
-   large: prop('theme.sizes.lg', '20px'),
+ font-size: ${switchProp(prop("size", "medium"), {
+   small: prop("theme.sizes.sm", "12px"),
+   medium: prop("theme.sizes.md", "16px"),
+   large: prop("theme.sizes.lg", "20px")
  }};
- ${switchProp('theme.kind', {
+ ${switchProp("theme.kind", {
    light: css`
      color: LightBlue;
    `,
    dark: css`
      color: DarkBlue;
-   `,
+   `
  })}
-`
+`;
 
-<Button size="large" theme={{ kind: 'light' }} />
+<Button size="large" theme={{ kind: "light" }} />
 ```
 
 Returns **any** 
