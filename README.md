@@ -169,7 +169,6 @@ Otherwise returns `defaultValue`
 
 -   `needle` **[Needle](#needle)** 
 -   `switches` **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** 
--   `defaultValue` **any** _deprecated_
 
 **Examples**
 
