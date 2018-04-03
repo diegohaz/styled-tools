@@ -16,8 +16,3 @@ test('function argument', () => {
   expect(switchProp(props => props.type, { red: 'red', blue: 'blue' })({ type: 'red' })).toBe('red')
   expect(switchProp(props => props.type, { red: 'red', blue: 'blue' })({ type: 'blue' })).toBe('blue')
 })
-
-test('defaultValue', () => {
-  expect(switchProp('color', { red: 'red', blue: 'blue' }, 'green')()).toBe('green')
-  expect(switchProp('color', { red: 'red', blue: 'blue' }, 'green')({ color: 'yellow' })).toBe('green')
-})
