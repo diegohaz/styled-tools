@@ -3,7 +3,7 @@ import get from 'lodash/get'
 import at from 'lodash/at'
 import values from 'lodash/values'
 import difference from 'lodash/difference'
-import type { Needle } from './types'
+import type { Needle } from '.'
 
 /**
  * Returns `pass` if prop is truthy. Otherwise returns `fail`
@@ -19,7 +19,7 @@ import type { Needle } from './types'
  *   font-size: ${ifProp({ size: 'large' }, '20px', ifProp({ size: 'medium' }, '16px', '12px'))};
  * `
  */
-const ifProp = (test: Needle | Object, pass?: any, fail?: any): any => (
+const ifProp = (test: Needle | string[] | Object, pass?: any, fail?: any): any => (
   (props: Object = {}): any => {
     let result
     if (Array.isArray(test)) {

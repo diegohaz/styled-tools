@@ -8,7 +8,7 @@ import get from 'lodash/get'
  *  color: ${prop('color', 'red')};
  * `
  */
-const prop = (path: string | string[], defaultValue?: any): any => (
+const prop = (path: string, defaultValue?: any): any => (
   (props: Object = {}) => get(props, path, defaultValue)
 )
 
