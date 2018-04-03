@@ -13,13 +13,6 @@ test('deep string argument', () => {
   expect(prop('color.primary')({ color: { primary: 'red' } })).toBe('red')
 })
 
-test('deep array argument', () => {
-  expect(prop(['color', 'primary'])()).toBeUndefined()
-  expect(prop(['color', 'primary'])({})).toBeUndefined()
-  expect(prop(['color', 'primary'])({ color: {} })).toBeUndefined()
-  expect(prop(['color', 'primary'])({ color: { primary: 'red' } })).toBe('red')
-})
-
 test('defaultValue', () => {
   expect(prop('color', 'red')()).toBe('red')
   expect(prop('color', 'red')({})).toBe('red')
