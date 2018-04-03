@@ -94,7 +94,7 @@ Returns the value of `props[path]` or `defaultValue`
 
 **Parameters**
 
--   `path` **([string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String) \| [Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)>)** 
+-   `path` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** 
 -   `defaultValue` **any** 
 
 **Examples**
@@ -113,7 +113,7 @@ Returns `pass` if prop is truthy. Otherwise returns `fail`
 
 **Parameters**
 
--   `test` **([Needle](#needle) \| [Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object))** 
+-   `test` **([Needle](#needle) \| [Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)> | [Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object))** 
 -   `pass` **any** 
 -   `fail` **any** 
 
@@ -140,7 +140,7 @@ Calls a function passing properties values as arguments.
 
 **Parameters**
 
--   `needle` **[Needle](#needle)** 
+-   `needle` **([Needle](#needle) \| [Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;[Needle](#needle)>)** 
 -   `fn` **[Function](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function)** 
 
 **Examples**
@@ -154,6 +154,7 @@ import { withProp, prop } from 'styled-tools'
 const Button = styled.button`
   border-color: ${withProp(prop('theme.primaryColor', 'blue'), darken(0.5))};
   font-size: ${withProp('theme.size', size => `${size + 1}px`)};
+  background: ${withProp(['foo', 'bar'], (foo, bar) => `${foo}${bar}`)};
 `
 ```
 
@@ -204,7 +205,7 @@ Returns **any**
 
 #### Needle
 
-Type: ([string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String) \| [Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)> | [Function](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function))
+Type: ([string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String) \| [Function](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function))
 
 ## License
 
