@@ -7,7 +7,7 @@
 
 Useful interpolated functions for [styled-components](https://github.com/styled-components/styled-components) 💅
 
-> **Shameless self promotion** 💡: If you are using `styled-components`, have a look at https://github.com/diegohaz/reas, a minimalist and highly customizable UI toolkit for React.
+> **Shameless self promotion** 💡: If you are using `styled-components`, have a look at <https://github.com/diegohaz/reas>, a minimalist and highly customizable UI toolkit for React.
 
 ## Install
 
@@ -205,7 +205,6 @@ Returns **any**
 #### Needle
 
 Type: ([string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String) \| [Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)> | [Function](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function))
-
 
 ## License
 
