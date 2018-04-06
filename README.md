@@ -7,7 +7,12 @@
 
 Useful interpolated functions for [styled-components](https://github.com/styled-components/styled-components) 💅
 
-> **Shameless self promotion** 💡: If you are using `styled-components`, have a look at <https://github.com/diegohaz/reas>, a minimalist and highly customizable UI toolkit for React.
+<br><br>
+<p align="center">
+  <strong>Small advertisement</strong> 🙈<br>
+  <a href="https://github.com/diegohaz/reas"><strong>reas</strong></a>: Minimalist and highly composable building blocks for your next React app.
+</p>
+<br><br>
 
 ## Install
 
