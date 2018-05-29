@@ -13,8 +13,6 @@ Useful interpolated functions for [styled-components](https://github.com/styled-
 
 ## Usage
 
-Play with it on [WebpackBin](https://www.webpackbin.com/bins/-Kel3KgddZSrD5oK0fIk)
-
 ```jsx
 import styled, { css } from "styled-components";
 import { prop, ifProp, switchProp } from "styled-tools";
