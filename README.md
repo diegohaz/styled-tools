@@ -79,6 +79,7 @@ const Button = styled.button`
 
 -   [prop](#prop)
 -   [ifProp](#ifprop)
+-   [ifNotProp](#ifnotprop)
 -   [withProp](#withprop)
 -   [switchProp](#switchprop)
 -   [Types](#types)
@@ -125,6 +126,26 @@ const Button = styled.button`
   background-color: ${ifProp("transparent", "transparent", palette(0))};
   color: ${ifProp(["transparent", "accent"], palette("secondary", 0))};
   font-size: ${ifProp({ size: "large" }, "20px", ifProp({ size: "medium" }, "16px", "12px"))};
+`;
+```
+
+Returns **any** 
+
+### ifNotProp
+
+Returns `pass` if prop is falsy. Otherwise returns `fail`
+
+**Parameters**
+
+-   `test` **([Needle](#needle) \| [Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)> | [Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object))** 
+-   `pass` **any** 
+-   `fail` **any** 
+
+**Examples**
+
+```javascript
+const Button = styled.button`
+  font-size: ${ifNotProp("large", "20px", "30px")};
 `;
 ```
 
