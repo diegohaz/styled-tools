@@ -1,6 +1,7 @@
 toc:
   - prop
   - ifProp
+  - ifNotProp
   - withProp
   - switchProp
   - name: Types

@@ -78,9 +78,20 @@ const Button = styled.button`
 #### Table of Contents
 
 -   [prop](#prop)
+    -   [Parameters](#parameters)
+    -   [Examples](#examples)
 -   [ifProp](#ifprop)
+    -   [Parameters](#parameters-1)
+    -   [Examples](#examples-1)
+-   [ifNotProp](#ifnotprop)
+    -   [Parameters](#parameters-2)
+    -   [Examples](#examples-2)
 -   [withProp](#withprop)
+    -   [Parameters](#parameters-3)
+    -   [Examples](#examples-3)
 -   [switchProp](#switchprop)
+    -   [Parameters](#parameters-4)
+    -   [Examples](#examples-4)
 -   [Types](#types)
     -   [Needle](#needle)
 
@@ -88,12 +99,12 @@ const Button = styled.button`
 
 Returns the value of `props[path]` or `defaultValue`
 
-**Parameters**
+#### Parameters
 
 -   `path` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** 
 -   `defaultValue` **any** 
 
-**Examples**
+#### Examples
 
 ```javascript
 const Button = styled.button`
@@ -107,13 +118,13 @@ Returns **any**
 
 Returns `pass` if prop is truthy. Otherwise returns `fail`
 
-**Parameters**
+#### Parameters
 
 -   `test` **([Needle](#needle) \| [Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)> | [Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object))** 
 -   `pass` **any** 
 -   `fail` **any** 
 
-**Examples**
+#### Examples
 
 ```javascript
 // usage with styled-theme
@@ -130,16 +141,36 @@ const Button = styled.button`
 
 Returns **any** 
 
+### ifNotProp
+
+Returns `pass` if prop is falsy. Otherwise returns `fail`
+
+#### Parameters
+
+-   `test` **([Needle](#needle) \| [Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)> | [Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object))** 
+-   `pass` **any** 
+-   `fail` **any** 
+
+#### Examples
+
+```javascript
+const Button = styled.button`
+  font-size: ${ifNotProp("large", "20px", "30px")};
+`;
+```
+
+Returns **any** 
+
 ### withProp
 
 Calls a function passing properties values as arguments.
 
-**Parameters**
+#### Parameters
 
 -   `needle` **([Needle](#needle) \| [Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;[Needle](#needle)>)** 
 -   `fn` **[Function](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function)** 
 
-**Examples**
+#### Examples
 
 ```javascript
 // example with polished
@@ -160,12 +191,12 @@ Returns **any**
 
 Switches on a given prop. Returns the value or function for a given prop value.
 
-**Parameters**
+#### Parameters
 
 -   `needle` **[Needle](#needle)** 
 -   `switches` **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** 
 
-**Examples**
+#### Examples
 
 ```javascript
 import styled, { css } from "styled-components";
