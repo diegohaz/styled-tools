@@ -4,6 +4,7 @@ toc:
   - ifNotProp
   - withProp
   - switchProp
+  - getStyle
   - name: Types
     children:
       - Needle

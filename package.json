@@ -74,6 +74,9 @@
     "npm-watch": "^0.3.0",
     "opn-cli": "^3.1.0",
     "prettier": "^1.13.5",
-    "rimraf": "^2.6.2"
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1",
+    "rimraf": "^2.6.2",
+    "styled-components": "^3.3.3"
   }
 }
