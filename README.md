@@ -92,6 +92,9 @@ const Button = styled.button`
 -   [switchProp](#switchprop)
     -   [Parameters](#parameters-4)
     -   [Examples](#examples-4)
+-   [getStyle](#getstyle)
+    -   [Parameters](#parameters-5)
+    -   [Examples](#examples-5)
 -   [Types](#types)
     -   [Needle](#needle)
 
@@ -222,6 +225,31 @@ const Button = styled.button`
 ```
 
 Returns **any** 
+
+### getStyle
+
+Get the style rules from a given styled component.
+
+#### Parameters
+
+-   `styledComponent` **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)**  (optional, default `{}`)
+-   `props` **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)**  (optional, default `styledComponent.defaultProps||{}`)
+
+#### Examples
+
+```javascript
+import styled from "styled-components";
+import { getStyle, prop } from "styled-tools";
+
+const Background = styled.div`
+  display: block;
+  background-color: ${prop("bg")};
+`;
+
+const BlackBackground = styled.div`
+  ${getStyle(Background, { bg: "black" })};
+`;
+```
 
 ### Types
 

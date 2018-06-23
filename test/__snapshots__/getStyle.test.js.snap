@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`default props 1`] = `
+"
+    display: block;
+    margin: 
+        10px 20px;
+      ;
+  "
+`;
+
+exports[`no props 1`] = `
+"
+    display: block;
+    margin: 10px 20px;
+  "
+`;
+
+exports[`with props 1`] = `
+"
+    display: block;
+    margin: 
+        10px 20px;
+      ;
+  "
+`;
