@@ -233,7 +233,7 @@ Get the style rules from a given styled component.
 #### Parameters
 
 -   `styledComponent` **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)**  (optional, default `{}`)
--   `props` **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)**  (optional, default `styledComponent.defaultProps||{}`)
+-   `props` **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)**  (optional, default `{}`)
 
 #### Examples
 

@@ -33,7 +33,7 @@ test("default props", () => {
     mv: 10,
     mh: 20
   };
-  expect(getStyle(Comp)).toMatchSnapshot();
+  expect(getStyle(Comp, { mv: 0 })).toMatchSnapshot();
 });
 
 test("error", () => {

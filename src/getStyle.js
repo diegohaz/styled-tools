@@ -28,16 +28,15 @@ const mapRules = (props: Object) => (part: Part) => {
  *   ${getStyle(Background, { bg: "black" })};
  * `;
  */
-const getStyle = (
-  styledComponent: Object = {},
-  props: Object = styledComponent.defaultProps || {}
-) => {
+const getStyle = (styledComponent: Object = {}, props: Object = {}) => {
   if (!styledComponent.componentStyle) {
     throw new Error(
       "[styled-tools] getStyle expects to receive a styled component."
     );
   }
-  return styledComponent.componentStyle.rules.map(mapRules(props)).join("");
+  return styledComponent.componentStyle.rules
+    .map(mapRules({ ...styledComponent.defaultProps, ...props }))
+    .join("");
 };
 
 export default getStyle;
