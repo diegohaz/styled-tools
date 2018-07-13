@@ -30,17 +30,9 @@
     "build": "npm run build:cjs && npm run build:es",
     "build:cjs": "cross-env BABEL_ENV=cjs babel src -d dist/cjs",
     "build:es": "cross-env BABEL_ENV=es babel src -d dist/es",
-    "watch": "npm-watch",
-    "patch": "npm version patch && npm publish",
-    "minor": "npm version minor && npm publish",
-    "major": "npm version major && npm publish",
-    "prepublish": "npm run lint && npm test && npm run build",
+    "preversion": "npm run lint && npm test && npm run build",
+    "version": "standard-changelog && git add CHANGELOG.md",
     "postpublish": "git push origin master --follow-tags"
-  },
-  "watch": {
-    "test": "{src,test}/*.js",
-    "lint": "{src,test}/*.js",
-    "build": "src"
   },
   "jest": {
     "testEnvironment": "node"
@@ -71,12 +63,12 @@
     "flow-bin": "^0.76.0",
     "flow-typed": "^2.5.1",
     "jest-cli": "^23.4.1",
-    "npm-watch": "^0.3.0",
     "opn-cli": "^3.1.0",
     "prettier": "^1.13.7",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
     "rimraf": "^2.6.2",
+    "standard-changelog": "^2.0.0",
     "styled-components": "^3.3.3"
   }
 }
