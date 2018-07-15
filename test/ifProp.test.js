@@ -58,3 +58,12 @@ test("function argument", () => {
   expect(ifProp(props => props.foo, "yes", "no")({ foo: false })).toBe("no");
   expect(ifProp(props => props.foo, "yes", "no")({ foo: true })).toBe("yes");
 });
+
+test("function values", () => {
+  expect(
+    ifProp("foo", props => props.foo, props => props.bar)({ bar: "bar" })
+  ).toBe("bar");
+  expect(
+    ifProp("foo", props => props.foo, props => props.bar)({ foo: "foo" })
+  ).toBe("foo");
+});

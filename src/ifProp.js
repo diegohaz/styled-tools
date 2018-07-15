@@ -36,7 +36,8 @@ const ifProp = (
   } else {
     result = get(props, test);
   }
-  return result ? pass : fail;
+  const value = result ? pass : fail;
+  return typeof value === "function" ? value(props) : value;
 };
 
 export default ifProp;
