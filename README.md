@@ -194,7 +194,8 @@ Switches on a given prop. Returns the value or function for a given prop value.
 #### Parameters
 
 -   `needle` **[Needle](#needle)** 
--   `switches` **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** 
+-   `cases` **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** 
+-   `defaultCase` **any** 
 
 #### Examples
 

@@ -36,3 +36,9 @@ test("function argument", () => {
     })
   ).toBe("blue");
 });
+
+test("default case", () => {
+  expect(
+    switchProp("foo", { red: "red", blue: "blue" }, "green")({ foo: "foo" })
+  ).toBe("green");
+});

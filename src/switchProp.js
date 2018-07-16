@@ -26,12 +26,12 @@ import type { Needle } from ".";
  *
  * <Button size="large" theme={{ kind: "light" }} />
  */
-const switchProp = (needle: Needle, switches: Object): any => (
+const switchProp = (needle: Needle, cases: Object, defaultCase: any): any => (
   props: Object = {}
 ): any => {
   const value =
     typeof needle === "function" ? needle(props) : get(props, needle);
-  return get(switches, value);
+  return get(cases, value, defaultCase);
 };
 
 export default switchProp;
