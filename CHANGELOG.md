@@ -1,3 +1,8 @@
+<a name="1.0.0"></a>
+# [1.0.0](https://github.com/diegohaz/styled-tools/compare/v0.6.2...v1.0.0) (2018-07-23)
+
+
+
 <a name="0.6.2"></a>
 ## [0.6.2](https://github.com/diegohaz/styled-tools/compare/v0.6.1...v0.6.2) (2018-07-16)
 
