@@ -21,9 +21,10 @@
     "test": "jest",
     "coverage": "npm test -- --coverage",
     "postcoverage": "opn coverage/lcov-report/index.html",
-    "lint": "eslint src test",
+    "lint": "eslint src test benchmark",
     "flow": "flow check",
     "flow-typed": "flow-typed install",
+    "benchmark": "cross-env NODE_ENV=test babel-node benchmark",
     "docs": "documentation readme src --section=API --pe flow -c documentation.yml",
     "clean": "rimraf dist",
     "prebuild": "npm run docs && npm run clean",
@@ -51,6 +52,7 @@
     "babel-plugin-transform-flow-strip-types": "^6.21.0",
     "babel-preset-env": "^1.7.0",
     "babel-preset-stage-1": "^6.24.1",
+    "benchmark": "^2.1.4",
     "cross-env": "^5.2.0",
     "documentation": "^8.0.0",
     "eslint": "^5.1.0",
@@ -69,6 +71,7 @@
     "react-dom": "^16.4.1",
     "rimraf": "^2.6.2",
     "standard-changelog": "^2.0.0",
-    "styled-components": "^3.3.3"
+    "styled-components": "^3.3.3",
+    "styled-tools": "^1.0.0"
   }
 }
