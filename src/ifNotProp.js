@@ -10,7 +10,7 @@ import type { Needle, PropsFn } from ".";
  * `;
  */
 const ifNotProp = (
-  test: Needle | string[] | Object,
+  test: Needle | Needle[] | Object,
   pass?: any,
   fail?: any
 ): PropsFn => ifProp(test, fail, pass);
