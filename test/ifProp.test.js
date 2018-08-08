@@ -1,5 +1,9 @@
 import ifProp from "../src/ifProp";
 
+test("no pass/fail", () => {
+  expect(ifProp("foo")({ foo: true })).toBe("");
+});
+
 test("string argument", () => {
   expect(ifProp("foo", "yes", "no")()).toBe("no");
   expect(ifProp("foo", "yes", "no")({ foo: true })).toBe("yes");
@@ -31,6 +35,18 @@ test("deep array argument", () => {
   expect(
     ifProp(["foo.bar", "baz"], "yes", "no")({ foo: { bar: false }, baz: true })
   ).toBe("no");
+});
+
+test("function array argument", () => {
+  expect(
+    ifProp([props => props.foo], "yes", "no")({ bar: false, foo: true })
+  ).toBe("yes");
+});
+
+test("object array argument", () => {
+  expect(ifProp([{ foo: true }], "yes", "no")({ bar: false, foo: true })).toBe(
+    "yes"
+  );
 });
 
 test("object argument", () => {

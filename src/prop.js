@@ -1,4 +1,6 @@
 // @flow
+import type { PropsFn } from ".";
+
 /**
  * Returns the value of `props[path]` or `defaultValue`
  * @example
@@ -6,25 +8,25 @@
  *  color: ${prop("color", "red")};
  * `;
  */
-const prop = (path: string, defaultValue?: any): any => (
-  props: Object = {}
-) => {
+const prop = (path: string, defaultValue?: any): PropsFn => (props = {}) => {
   if (typeof props[path] !== "undefined") {
     return props[path];
   }
 
-  if (path.indexOf(".") > 0) {
+  if (path && path.indexOf(".") > 0) {
     const paths = path.split(".");
     const { length } = paths;
-    let index = 0;
-    let object = props;
+    let object = props[paths[0]];
+    let index = 1;
 
     while (object != null && index < length) {
       object = object[paths[index]];
       index += 1;
     }
 
-    return object;
+    if (typeof object !== "undefined") {
+      return object;
+    }
   }
 
   return defaultValue;

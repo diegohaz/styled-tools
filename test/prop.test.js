@@ -17,4 +17,5 @@ test("defaultValue", () => {
   expect(prop("color", "red")()).toBe("red");
   expect(prop("color", "red")({})).toBe("red");
   expect(prop("color", "red")({ color: "blue" })).toBe("blue");
+  expect(prop("color.primary", "red")({})).toBe("red");
 });
