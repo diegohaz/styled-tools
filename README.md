@@ -112,7 +112,7 @@ const Button = styled.button`
 `;
 ```
 
-Returns **any** 
+Returns **PropsFn** 
 
 ### ifProp
 
@@ -120,9 +120,9 @@ Returns `pass` if prop is truthy. Otherwise returns `fail`
 
 #### Parameters
 
--   `test` **([Needle](#needle) \| [Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)> | [Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object))** 
--   `pass` **any** 
--   `fail` **any** 
+-   `test` **([Needle](#needle) \| [Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;[Needle](#needle)> | [Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object))** 
+-   `pass` **any**  (optional, default `""`)
+-   `fail` **any**  (optional, default `""`)
 
 #### Examples
 
@@ -139,7 +139,7 @@ const Button = styled.button`
 `;
 ```
 
-Returns **any** 
+Returns **PropsFn** 
 
 ### ifNotProp
 
@@ -147,7 +147,7 @@ Returns `pass` if prop is falsy. Otherwise returns `fail`
 
 #### Parameters
 
--   `test` **([Needle](#needle) \| [Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)> | [Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object))** 
+-   `test` **([Needle](#needle) \| [Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;[Needle](#needle)> | [Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object))** 
 -   `pass` **any** 
 -   `fail` **any** 
 
@@ -159,7 +159,7 @@ const Button = styled.button`
 `;
 ```
 
-Returns **any** 
+Returns **PropsFn** 
 
 ### withProp
 
@@ -185,7 +185,7 @@ const Button = styled.button`
 `;
 ```
 
-Returns **any** 
+Returns **PropsFn** 
 
 ### switchProp
 
@@ -222,7 +222,7 @@ const Button = styled.button`
 <Button size="large" theme={{ kind: "light" }} />
 ```
 
-Returns **any** 
+Returns **PropsFn** 
 
 ### Types
 
