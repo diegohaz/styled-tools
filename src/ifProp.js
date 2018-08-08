@@ -1,9 +1,29 @@
 // @flow
-import get from "lodash/get";
-import at from "lodash/at";
-import values from "lodash/values";
-import difference from "lodash/difference";
-import type { Needle } from ".";
+/* eslint-disable no-use-before-define */
+import prop from "./prop";
+import type { Needle, PropsFn } from ".";
+
+const parseFunction = (props: Object, test: Function): boolean =>
+  Boolean(test(props));
+
+const parseObject = (props: Object, test: Object): boolean => {
+  const keys = Object.keys(test);
+  const { length } = keys;
+
+  for (let index = 0; index < length; index += 1) {
+    const key = keys[index];
+    const expected = test[key];
+    const value = prop(key)(props);
+    if (expected !== value) {
+      return false;
+    }
+  }
+
+  return true;
+};
+
+const parseString = (props: Object, test: string): boolean =>
+  Boolean(prop(test)(props));
 
 /**
  * Returns `pass` if prop is truthy. Otherwise returns `fail`
@@ -20,22 +40,28 @@ import type { Needle } from ".";
  * `;
  */
 const ifProp = (
-  test: Needle | string[] | Object,
-  pass?: any,
-  fail?: any
-): any => (props: Object = {}): any => {
-  let result;
+  test: Needle | Needle[] | Object,
+  pass: any = "",
+  fail: any = ""
+): PropsFn => (props = {}) => {
   if (Array.isArray(test)) {
-    result = !at(props, test).filter(value => !value).length;
-  } else if (typeof test === "function") {
-    result = test(props);
-  } else if (typeof test === "object") {
-    const testKeys = Object.keys(test);
-    const testValues = values(test);
-    result = !difference(at(props, testKeys), testValues).length;
-  } else {
-    result = get(props, test);
+    const { length } = test;
+    let index = 0;
+    let value = pass;
+    while (value !== fail && index < length) {
+      value = ifProp(test[index], pass, fail)(props);
+      index += 1;
+    }
+    return value;
   }
+
+  const parseMap = {
+    function: parseFunction,
+    object: parseObject,
+    string: parseString
+  };
+
+  const result = parseMap[typeof test](props, test);
   const value = result ? pass : fail;
   return typeof value === "function" ? value(props) : value;
 };

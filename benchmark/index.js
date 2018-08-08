@@ -25,7 +25,7 @@ const runBoth = (name, fn) => {
   runDev(name, fn);
 };
 
-const props = { a: "a", b: "b", c: { d: "d" } };
+const props = { a: "a", b: "b", c: { d: { e: "e" } } };
 
 const suites = {
   ifNotProp: ifNotProp => {
@@ -33,15 +33,25 @@ const suites = {
   },
   ifProp: ifProp => {
     ifProp("a", true, false)(props);
+    ifProp(["a", "b"], true, false)(props);
+    ifProp("foo", true, false)(props);
+    ifProp("c.d.e", true, false)(props);
   },
   prop: prop => {
+    prop("a")(props);
     prop("foo")(props);
+    prop("c.d.e")(props);
   },
   switchProp: switchProp => {
-    switchProp("a", { a: "a", b: "b" })(props);
+    const cases = { a: "a", b: "b" };
+    switchProp("a", cases)(props);
+    switchProp("foo", cases)(props);
+    switchProp("c.d.e", cases)(props);
   },
   withProp: withProp => {
     withProp("a", a => a)(props);
+    withProp("foo", a => a)(props);
+    withProp("c.d.e", a => a)(props);
   }
 };
 

@@ -1,6 +1,6 @@
 // @flow
-import get from "lodash/get";
-import type { Needle } from ".";
+import prop from "./prop";
+import type { Needle, PropsFn } from ".";
 
 /**
  * Calls a function passing properties values as arguments.
@@ -16,9 +16,9 @@ import type { Needle } from ".";
  *   background: ${withProp(["foo", "bar"], (foo, bar) => `${foo}${bar}`)};
  * `;
  */
-const withProp = (needle: Needle | Needle[], fn: Function): any => (
-  props: Object = {}
-): any => {
+const withProp = (needle: Needle | Needle[], fn: Function): PropsFn => (
+  props = {}
+) => {
   if (Array.isArray(needle)) {
     const needles = needle.map(arg => withProp(arg, x => x)(props));
     return fn(...needles);
@@ -26,7 +26,7 @@ const withProp = (needle: Needle | Needle[], fn: Function): any => (
   if (typeof needle === "function") {
     return fn(needle(props));
   }
-  return fn(get(props, needle));
+  return fn(prop(needle)(props));
 };
 
 export default withProp;

@@ -1,6 +1,6 @@
 // @flow
-import type { Needle } from ".";
 import ifProp from "./ifProp";
+import type { Needle, PropsFn } from ".";
 
 /**
  * Returns `pass` if prop is falsy. Otherwise returns `fail`
@@ -10,9 +10,9 @@ import ifProp from "./ifProp";
  * `;
  */
 const ifNotProp = (
-  test: Needle | string[] | Object,
+  test: Needle | Needle[] | Object,
   pass?: any,
   fail?: any
-): any => ifProp(test, fail, pass);
+): PropsFn => ifProp(test, fail, pass);
 
 export default ifNotProp;

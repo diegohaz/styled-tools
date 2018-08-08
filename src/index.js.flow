@@ -1,4 +1,6 @@
 // @flow
 
 /** */
-export type Needle = string | Function
+export type Needle = string | Function;
+
+export type PropsFn = (props?: Object) => any;
