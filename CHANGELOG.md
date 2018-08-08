@@ -1,3 +1,13 @@
+<a name="1.1.0"></a>
+# [1.1.0](https://github.com/diegohaz/styled-tools/compare/v1.0.0...v1.1.0) (2018-08-08)
+
+
+### Performance Improvements
+
+* Remove lodash dependency ([#45](https://github.com/diegohaz/styled-tools/issues/45)) ([bd06455](https://github.com/diegohaz/styled-tools/commit/bd06455))
+
+
+
 <a name="1.0.0"></a>
 # [1.0.0](https://github.com/diegohaz/styled-tools/compare/v0.6.2...v1.0.0) (2018-07-23)
 
