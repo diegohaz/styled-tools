@@ -95,6 +95,9 @@ const Button = styled.button`
     -   [Examples](#examples-4)
 -   [Types](#types)
     -   [Needle](#needle)
+-   [theme](#theme)
+    -   [Parameters](#parameters-5)
+    -   [Examples](#examples-5)
 
 ### prop
 
@@ -233,6 +236,26 @@ Returns **PropsFn**
 #### Needle
 
 Type: ([string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String) \| [Function](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function))
+
+### theme
+
+Same as `prop`, except that it returns `props.theme[path]` instead of
+`props[path]`.
+
+#### Parameters
+
+-   `path` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** 
+-   `defaultValue` **any** 
+
+#### Examples
+
+```javascript
+const Button = styled.button`
+ color: ${theme("button.color", "red")};
+`;
+```
+
+Returns **PropsWithThemeFn** 
 
 ## License
 
