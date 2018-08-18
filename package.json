@@ -46,7 +46,6 @@
   ],
   "dependencies": {},
   "devDependencies": {
-    "@types/lodash": "^4.14.116",
     "babel-cli": "^6.18.0",
     "babel-core": "^6.26.3",
     "babel-eslint": "^8.2.6",
