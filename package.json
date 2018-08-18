@@ -6,6 +6,7 @@
   "repository": "diegohaz/styled-tools",
   "main": "dist/cjs/index.js",
   "module": "dist/es/index.js",
+  "types": "types/index.d.ts",
   "author": {
     "name": "Diego Haz",
     "email": "hazdiego@gmail.com",
@@ -15,13 +16,15 @@
     "node": ">=6"
   },
   "files": [
-    "dist"
+    "dist",
+    "types"
   ],
   "scripts": {
     "test": "jest",
     "coverage": "npm test -- --coverage",
     "postcoverage": "opn coverage/lcov-report/index.html",
     "lint": "eslint src test benchmark",
+    "type-check": "tsc",
     "flow": "flow check",
     "flow-typed": "flow-typed install",
     "benchmark": "cross-env NODE_ENV=test babel-node benchmark",
@@ -43,6 +46,7 @@
   ],
   "dependencies": {},
   "devDependencies": {
+    "@types/lodash": "^4.14.116",
     "babel-cli": "^6.18.0",
     "babel-core": "^6.26.3",
     "babel-eslint": "^8.2.6",
@@ -70,6 +74,7 @@
     "rimraf": "^2.6.2",
     "standard-changelog": "^2.0.0",
     "styled-components": "^3.3.3",
-    "styled-tools": "^1.0.0"
+    "styled-tools": "^1.0.0",
+    "typescript": "^3.0.1"
   }
 }
