@@ -1,5 +1,6 @@
 toc:
   - prop
+  - theme
   - ifProp
   - ifNotProp
   - withProp

@@ -81,23 +81,23 @@ const Button = styled.button`
 -   [prop](#prop)
     -   [Parameters](#parameters)
     -   [Examples](#examples)
--   [ifProp](#ifprop)
+-   [theme](#theme)
     -   [Parameters](#parameters-1)
     -   [Examples](#examples-1)
--   [ifNotProp](#ifnotprop)
+-   [ifProp](#ifprop)
     -   [Parameters](#parameters-2)
     -   [Examples](#examples-2)
--   [withProp](#withprop)
+-   [ifNotProp](#ifnotprop)
     -   [Parameters](#parameters-3)
     -   [Examples](#examples-3)
--   [switchProp](#switchprop)
+-   [withProp](#withprop)
     -   [Parameters](#parameters-4)
     -   [Examples](#examples-4)
--   [Types](#types)
-    -   [Needle](#needle)
--   [theme](#theme)
+-   [switchProp](#switchprop)
     -   [Parameters](#parameters-5)
     -   [Examples](#examples-5)
+-   [Types](#types)
+    -   [Needle](#needle)
 
 ### prop
 
@@ -117,6 +117,26 @@ const Button = styled.button`
 ```
 
 Returns **PropsFn** 
+
+### theme
+
+Same as `prop`, except that it returns `props.theme[path]` instead of
+`props[path]`.
+
+#### Parameters
+
+-   `path` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** 
+-   `defaultValue` **any** 
+
+#### Examples
+
+```javascript
+const Button = styled.button`
+ color: ${theme("button.color", "red")};
+`;
+```
+
+Returns **PropsWithThemeFn** 
 
 ### ifProp
 
@@ -236,26 +256,6 @@ Returns **PropsFn**
 #### Needle
 
 Type: ([string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String) \| [Function](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function))
-
-### theme
-
-Same as `prop`, except that it returns `props.theme[path]` instead of
-`props[path]`.
-
-#### Parameters
-
--   `path` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** 
--   `defaultValue` **any** 
-
-#### Examples
-
-```javascript
-const Button = styled.button`
- color: ${theme("button.color", "red")};
-`;
-```
-
-Returns **PropsWithThemeFn** 
 
 ## License
 
