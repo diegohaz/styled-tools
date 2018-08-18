@@ -1,6 +1,6 @@
 {
   "name": "styled-tools",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Utilities for styled-components",
   "license": "MIT",
   "repository": "diegohaz/styled-tools",
@@ -35,7 +35,7 @@
     "build:cjs": "cross-env BABEL_ENV=cjs babel src -d dist/cjs",
     "build:es": "cross-env BABEL_ENV=es babel src -d dist/es",
     "preversion": "npm run lint && npm test && npm run build",
-    "version": "standard-changelog && git add CHANGELOG.md",
+    "release": "standard-version",
     "postpublish": "git push origin master --follow-tags"
   },
   "jest": {
@@ -71,7 +71,7 @@
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
     "rimraf": "^2.6.2",
-    "standard-changelog": "^2.0.0",
+    "standard-version": "^4.4.0",
     "styled-components": "^3.3.3",
     "styled-tools": "^1.0.0",
     "typescript": "^3.0.1"
