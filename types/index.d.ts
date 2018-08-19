@@ -1,34 +1,34 @@
-type Dictionary<T = any> = { [key: string]: T };
-type PropsFn<ReturnType = any> = (props?: Dictionary) => ReturnType;
-type Needle = string | PropsFn;
+type Needle<Props, T> = string | ((props?: Props) => T);
 
-type PropsWithThemeFn<ReturnType = any> = (
-  props: Dictionary & { theme: Dictionary }
-) => ReturnType;
+export function prop<T = undefined>(
+  path: string,
+  defaultValue?: T
+): <Props>(props?: Props) => Props[keyof Props] | T;
 
-export function ifProp<Pass = string, Fail = string>(
-  test: Needle | Needle[] | Dictionary,
+export function theme<T = undefined>(
+  path: string,
+  defaultValue?: T
+): <Props, Theme>(props: Props & { theme: Theme }) => Theme[keyof Theme] | T;
+
+export function ifProp<Props, Pass = undefined, Fail = undefined>(
+  test: Needle<Props, any> | Needle<Props, any>[] | { [key: string]: any },
   pass?: Pass,
   fail?: Fail
-): PropsFn<Pass | Fail>;
+): <P = Props>(props?: P) => Pass | Fail;
 
-export function ifNotProp<Pass = string, Fail = string>(
-  test: Needle | Needle[] | Dictionary,
+export function ifNotProp<Props, Pass = undefined, Fail = undefined>(
+  test: Needle<Props, any> | Needle<Props, any>[] | { [key: string]: any },
   pass?: Pass,
   fail?: Fail
-): PropsFn<Pass | Fail>;
+): <P = Props>(props?: P) => Pass | Fail;
 
-export function prop(path: string, defaultValue?: any): PropsFn;
-
-export function switchProp<T = any, DefaultCase = undefined>(
-  needle: Needle,
-  cases: Dictionary<T>,
+export function switchProp<Props, T = undefined, DefaultCase = undefined>(
+  needle: Needle<Props, any>,
+  cases: { [key: string]: T },
   defaultCase?: DefaultCase
-): PropsFn<T | DefaultCase>;
+): <P = Props>(props?: P) => T | DefaultCase;
 
-export function theme(path: string, defaultValue?: any): PropsWithThemeFn;
-
-export function withProp<T = any>(
-  needle: Needle | Needle[],
-  fn: (...props: any[]) => T
-): PropsFn<T>
+export function withProp<Props, T = undefined>(
+  needle: Needle<Props, any> | Needle<Props, any>[],
+  fn: (...args: any[]) => T
+): <P = Props>(props?: P) => T;
