@@ -29,8 +29,8 @@ palette("a", 1, "b")({ theme: { palette: { a: "a" } } }) as string;
 palette("a", 1, "b")({ theme: { palette: { a: "a" } } }) as undefined;
 palette("a", "b")({ theme: { palette: { a: "a" } } }) as string;
 palette("a", "b")({ theme: { palette: { a: "a" } } }) as undefined;
-palette(1, "b")({ theme: { palette: {} } }) as string;
-palette(1, "b")({ theme: { palette: {} } }) as undefined;
+palette(1, "b")({ theme: {} }) as string;
+palette(1, "b")({ theme: {} }) as undefined;
 
 ifProp("a", true)({ a: true }) as boolean;
 ifProp("a", true)({ a: true }) as undefined;

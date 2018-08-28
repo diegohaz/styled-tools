@@ -54,13 +54,7 @@ const palette = (
   const finalDefaultValue =
     indexOrDefaultValue !== index ? indexOrDefaultValue : defaultValue;
 
-  if (props.theme.palette == null) {
-    throw new Error(
-      "[styled-tools] `palette()` was used but `theme` has no `palette` key."
-    );
-  }
-
-  if (!props.theme.palette[key]) {
+  if (!props.theme.palette || !props.theme.palette[key]) {
     return finalDefaultValue;
   }
 

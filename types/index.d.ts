@@ -11,7 +11,7 @@ export function theme<T = undefined>(
 ): <Props, Theme>(props: Props & { theme: Theme }) => Theme[keyof Theme] | T;
 
 type ThemeWithPalette = {
-  palette: { [key: string]: any };
+  palette?: { [key: string]: any };
 };
 
 interface Palette {
