@@ -1,4 +1,4 @@
-import { prop, theme, ifProp, ifNotProp, switchProp, withProp } from "..";
+import { prop, theme, palette, ifProp, ifNotProp, switchProp, withProp } from "..";
 
 prop("a")({ a: true }) as boolean;
 prop("a")({ a: true }) as undefined;
@@ -17,6 +17,20 @@ theme("a", "b")({ theme: { a: true } }) as boolean;
 theme("a", "b")({ theme: { a: true } }) as string;
 theme("a", "b")({ a: 1, theme: { a: true } }) as boolean;
 theme("a", "b")({ a: 1, theme: { a: true } }) as string;
+
+palette("a")({ theme: { palette: { a: "a" } } }) as string;
+palette("a")({ theme: { palette: { a: "a" } } }) as undefined;
+palette()({ theme: { palette: { a: "a", b: "b" } }, palette: "a" });
+palette(1)({ theme: { palette: { a: "a" } }, palette: "a" }) as string;
+palette(1)({ theme: { palette: { a: "a" } }, palette: "a" }) as undefined;
+palette("a", 1)({ theme: { palette: { a: "a" } } }) as string;
+palette("a", 1)({ theme: { palette: { a: "a" } } }) as undefined;
+palette("a", 1, "b")({ theme: { palette: { a: "a" } } }) as string;
+palette("a", 1, "b")({ theme: { palette: { a: "a" } } }) as undefined;
+palette("a", "b")({ theme: { palette: { a: "a" } } }) as string;
+palette("a", "b")({ theme: { palette: { a: "a" } } }) as undefined;
+palette(1, "b")({ theme: { palette: {} } }) as string;
+palette(1, "b")({ theme: { palette: {} } }) as undefined;
 
 ifProp("a", true)({ a: true }) as boolean;
 ifProp("a", true)({ a: true }) as undefined;

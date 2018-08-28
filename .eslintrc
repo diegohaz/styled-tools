@@ -15,6 +15,7 @@
   },
   "rules": {
     "flowtype-errors/show-errors": "error",
-    "import/no-cycle": "off"
+    "import/no-cycle": "off",
+    "no-nested-ternary": "off"
   }
 }

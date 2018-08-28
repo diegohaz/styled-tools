@@ -4,8 +4,11 @@ import type { PropsFn } from ".";
 /**
  * Returns the value of `props[path]` or `defaultValue`
  * @example
+ * import styled from "styled-components";
+ * import { prop } from "styled-tools";
+ *
  * const Button = styled.button`
- *  color: ${prop("color", "red")};
+ *   color: ${prop("color", "red")};
  * `;
  */
 const prop = (path: string, defaultValue?: any): PropsFn => (props = {}) => {
