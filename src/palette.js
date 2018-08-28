@@ -16,7 +16,7 @@ const clamp = (number: number, min: number, max: number) => {
 /**
  * Returns `props.theme.palette[key][index]` or `defaultValue`.
  * @example
- * import styled from "styled-components";
+ * import styled, { ThemeProvider } from "styled-components";
  * import { palette } from "styled-tools";
  *
  * const theme = {
@@ -25,19 +25,17 @@ const clamp = (number: number, min: number, max: number) => {
  * };
  *
  * const Button = styled.button`
- *   // props.theme.palette[props.palette][1]
- *   color: ${palette(1)};
- *   // props.theme.palette.primary[1]
- *   color: ${palette("primary", 1)};
- *   // props.theme.palette.primary[3]
- *   color: ${palette("primary", -1)};
- *   // props.theme.palette.primary[3]
- *   color: ${palette("primary", 10)};
- *   // props.theme.palette.primary[0]
- *   color: ${palette("primary", -10)};
- *   // props.theme.palette.primary[0] || red
- *   color: ${palette("primary", 0, "red")};
+ *   color: ${palette(1)};                    // props.theme.palette[props.palette][1]
+ *   color: ${palette("primary", 1)};         // props.theme.palette.primary[1]
+ *   color: ${palette("primary", -1)};        // props.theme.palette.primary[3]
+ *   color: ${palette("primary", 10)};        // props.theme.palette.primary[3]
+ *   color: ${palette("primary", -10)};       // props.theme.palette.primary[0]
+ *   color: ${palette("primary", 0, "red")};  // props.theme.palette.primary[0] || red
  * `;
+ *
+ * <ThemeProvider theme={theme}>
+ *   <Button palette="secondary" />
+ * </ThemeProvider>
  */
 const palette = (
   keyOrIndex?: string | number,
