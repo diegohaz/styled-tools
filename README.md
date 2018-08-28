@@ -84,18 +84,21 @@ const Button = styled.button`
 -   [theme](#theme)
     -   [Parameters](#parameters-1)
     -   [Examples](#examples-1)
--   [ifProp](#ifprop)
+-   [palette](#palette)
     -   [Parameters](#parameters-2)
     -   [Examples](#examples-2)
--   [ifNotProp](#ifnotprop)
+-   [ifProp](#ifprop)
     -   [Parameters](#parameters-3)
     -   [Examples](#examples-3)
--   [withProp](#withprop)
+-   [ifNotProp](#ifnotprop)
     -   [Parameters](#parameters-4)
     -   [Examples](#examples-4)
--   [switchProp](#switchprop)
+-   [withProp](#withprop)
     -   [Parameters](#parameters-5)
     -   [Examples](#examples-5)
+-   [switchProp](#switchprop)
+    -   [Parameters](#parameters-6)
+    -   [Examples](#examples-6)
 -   [Types](#types)
     -   [Needle](#needle)
 
@@ -111,8 +114,11 @@ Returns the value of `props[path]` or `defaultValue`
 #### Examples
 
 ```javascript
+import styled from "styled-components";
+import { prop } from "styled-tools";
+
 const Button = styled.button`
- color: ${prop("color", "red")};
+  color: ${prop("color", "red")};
 `;
 ```
 
@@ -131,12 +137,48 @@ Same as `prop`, except that it returns `props.theme[path]` instead of
 #### Examples
 
 ```javascript
+import styled from "styled-components";
+import { theme } from "styled-tools";
+
 const Button = styled.button`
  color: ${theme("button.color", "red")};
 `;
 ```
 
-Returns **PropsWithThemeFn** 
+### palette
+
+Returns `props.theme.palette[key][index]` or `defaultValue`.
+
+#### Parameters
+
+-   `keyOrIndex` **([string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String) \| [number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number))** 
+-   `indexOrDefaultValue` **any** 
+-   `defaultValue` **any** 
+
+#### Examples
+
+```javascript
+import styled, { ThemeProvider } from "styled-components";
+import { palette } from "styled-tools";
+
+const theme = {
+  primary: ['#1976d2', '#2196f3', '#71bcf7', '#c2e2fb'],
+  secondary: ['#c2185b', '#e91e63', '#f06292', '#f8bbd0']
+};
+
+const Button = styled.button`
+  color: ${palette(1)};                    // props.theme.palette[props.palette][1]
+  color: ${palette("primary", 1)};         // props.theme.palette.primary[1]
+  color: ${palette("primary", -1)};        // props.theme.palette.primary[3]
+  color: ${palette("primary", 10)};        // props.theme.palette.primary[3]
+  color: ${palette("primary", -10)};       // props.theme.palette.primary[0]
+  color: ${palette("primary", 0, "red")};  // props.theme.palette.primary[0] || red
+`;
+
+<ThemeProvider theme={theme}>
+  <Button palette="secondary" />
+</ThemeProvider>
+```
 
 ### ifProp
 
@@ -178,6 +220,9 @@ Returns `pass` if prop is falsy. Otherwise returns `fail`
 #### Examples
 
 ```javascript
+import styled from "styled-components";
+import { ifNotProp } from "styled-tools";
+
 const Button = styled.button`
   font-size: ${ifNotProp("large", "20px", "30px")};
 `;
@@ -228,19 +273,19 @@ import styled, { css } from "styled-components";
 import { switchProp, prop } from "styled-tools";
 
 const Button = styled.button`
- font-size: ${switchProp(prop("size", "medium"), {
-   small: prop("theme.sizes.sm", "12px"),
-   medium: prop("theme.sizes.md", "16px"),
-   large: prop("theme.sizes.lg", "20px")
- }};
- ${switchProp("theme.kind", {
-   light: css`
-     color: LightBlue;
-   `,
-   dark: css`
-     color: DarkBlue;
-   `
- })}
+  font-size: ${switchProp(prop("size", "medium"), {
+    small: prop("theme.sizes.sm", "12px"),
+    medium: prop("theme.sizes.md", "16px"),
+    large: prop("theme.sizes.lg", "20px")
+  }};
+  ${switchProp("theme.kind", {
+    light: css`
+      color: LightBlue;
+    `,
+    dark: css`
+      color: DarkBlue;
+    `
+  })}
 `;
 
 <Button size="large" theme={{ kind: "light" }} />

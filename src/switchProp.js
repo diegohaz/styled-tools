@@ -9,19 +9,19 @@ import type { Needle, PropsFn } from ".";
  * import { switchProp, prop } from "styled-tools";
  *
  * const Button = styled.button`
- *  font-size: ${switchProp(prop("size", "medium"), {
- *    small: prop("theme.sizes.sm", "12px"),
- *    medium: prop("theme.sizes.md", "16px"),
- *    large: prop("theme.sizes.lg", "20px")
- *  }};
- *  ${switchProp("theme.kind", {
- *    light: css`
- *      color: LightBlue;
- *    `,
- *    dark: css`
- *      color: DarkBlue;
- *    `
- *  })}
+ *   font-size: ${switchProp(prop("size", "medium"), {
+ *     small: prop("theme.sizes.sm", "12px"),
+ *     medium: prop("theme.sizes.md", "16px"),
+ *     large: prop("theme.sizes.lg", "20px")
+ *   }};
+ *   ${switchProp("theme.kind", {
+ *     light: css`
+ *       color: LightBlue;
+ *     `,
+ *     dark: css`
+ *       color: DarkBlue;
+ *     `
+ *   })}
  * `;
  *
  * <Button size="large" theme={{ kind: "light" }} />

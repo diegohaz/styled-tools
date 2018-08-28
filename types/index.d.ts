@@ -10,6 +10,40 @@ export function theme<T = undefined>(
   defaultValue?: T
 ): <Props, Theme>(props: Props & { theme: Theme }) => Theme[keyof Theme] | T;
 
+type ThemeWithPalette = {
+  palette: { [key: string]: any };
+};
+
+interface Palette {
+  (index?: number): <Props, Theme extends ThemeWithPalette>(
+    props: Props & { theme: Theme; palette: keyof Theme["palette"] }
+  ) => any;
+
+  (index: number, defaultValue: any): <Props, Theme extends ThemeWithPalette>(
+    props: Props & { theme: Partial<Theme>; palette?: keyof Theme["palette"] }
+  ) => any;
+
+  (key: string, index?: number): <Props, Theme extends ThemeWithPalette>(
+    props: Props & { theme: Theme }
+  ) => any;
+
+  (key: string, defaultValue?: Exclude<any, number>): <
+    Props,
+    Theme extends ThemeWithPalette
+  >(
+    props: Props & { theme: Theme }
+  ) => any;
+
+  (key: string, index: number, defaultValue?: Exclude<any, number>): <
+    Props,
+    Theme extends ThemeWithPalette
+  >(
+    props: Props & { theme: Theme }
+  ) => any;
+}
+
+export const palette: Palette;
+
 export function ifProp<Props, Pass = undefined, Fail = undefined>(
   test: Needle<Props> | Needle<Props>[] | { [key: string]: any },
   pass?: Pass,
