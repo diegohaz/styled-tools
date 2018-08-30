@@ -8,7 +8,9 @@ export function prop<T = undefined>(
 export function theme<T = undefined>(
   path: string,
   defaultValue?: T
-): <Props, Theme>(props: Props & { theme: Theme }) => Theme[keyof Theme] | T;
+): <Props, Theme extends { [key: string]: any }>(
+  props: Props & { theme: Theme }
+) => Theme[keyof Theme] | T;
 
 type ThemeWithPalette = {
   palette?: { [key: string]: any };
