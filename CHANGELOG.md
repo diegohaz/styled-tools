@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.4.3"></a>
+## [1.4.3](https://github.com/diegohaz/styled-tools/compare/v1.4.2...v1.4.3) (2018-08-31)
+
+
+### Bug Fixes
+
+* palette typings ([8d1e32d](https://github.com/diegohaz/styled-tools/commit/8d1e32d))
+
+
+
 <a name="1.4.2"></a>
 ## [1.4.2](https://github.com/diegohaz/styled-tools/compare/v1.4.1...v1.4.2) (2018-08-30)
 
