@@ -2,7 +2,8 @@
 import type { PropsWithTheme } from ".";
 
 type Props = PropsWithTheme & {
-  palette?: string
+  palette?: string,
+  tone?: number
 };
 
 const toArray = (arg: any) => (Array.isArray(arg) ? arg : [arg]);
@@ -14,7 +15,7 @@ const clamp = (number: number, min: number, max: number) => {
 };
 
 /**
- * Returns `props.theme.palette[key][index]` or `defaultValue`.
+ * Returns `props.theme.palette[key || props.palette][tone || props.tone || 0]` or `defaultValue`.
  * @example
  * import styled, { ThemeProvider } from "styled-components";
  * import { palette } from "styled-tools";
@@ -29,6 +30,7 @@ const clamp = (number: number, min: number, max: number) => {
  * const Button = styled.button`
  *   color: ${palette(1)};                    // props.theme.palette[props.palette][1]
  *   color: ${palette("primary", 1)};         // props.theme.palette.primary[1]
+ *   color: ${palette("primary")};            // props.theme.palette.primary[props.tone || 0]
  *   color: ${palette("primary", -1)};        // props.theme.palette.primary[3]
  *   color: ${palette("primary", 10)};        // props.theme.palette.primary[3]
  *   color: ${palette("primary", -10)};       // props.theme.palette.primary[0]
@@ -40,19 +42,19 @@ const clamp = (number: number, min: number, max: number) => {
  * </ThemeProvider>
  */
 const palette = (
-  keyOrIndex?: string | number,
-  indexOrDefaultValue?: any,
+  keyOrTone?: string | number,
+  toneOrDefaultValue?: any,
   defaultValue?: any
 ) => (props: Props) => {
-  const key = typeof keyOrIndex === "string" ? keyOrIndex : props.palette;
-  const index =
-    typeof keyOrIndex === "number"
-      ? keyOrIndex
-      : typeof indexOrDefaultValue === "number"
-        ? indexOrDefaultValue
-        : 0;
+  const key = typeof keyOrTone === "string" ? keyOrTone : props.palette;
+  const tone =
+    typeof keyOrTone === "number"
+      ? keyOrTone
+      : typeof toneOrDefaultValue === "number"
+        ? toneOrDefaultValue
+        : props.tone || 0;
   const finalDefaultValue =
-    indexOrDefaultValue !== index ? indexOrDefaultValue : defaultValue;
+    toneOrDefaultValue !== tone ? toneOrDefaultValue : defaultValue;
 
   if (!props.theme.palette || !props.theme.palette[key]) {
     return finalDefaultValue;
@@ -60,11 +62,11 @@ const palette = (
 
   const tones = toArray(props.theme.palette[key]);
 
-  if (index < 0) {
-    return tones[clamp(tones.length + index, 0, tones.length - 1)];
+  if (tone < 0) {
+    return tones[clamp(tones.length + tone, 0, tones.length - 1)];
   }
 
-  return tones[clamp(index, 0, tones.length - 1)];
+  return tones[clamp(tone, 0, tones.length - 1)];
 };
 
 export default palette;

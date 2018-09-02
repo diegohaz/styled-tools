@@ -147,12 +147,12 @@ const Button = styled.button`
 
 ### palette
 
-Returns `props.theme.palette[key][index]` or `defaultValue`.
+Returns `props.theme.palette[key || props.palette][tone || props.tone || 0]` or `defaultValue`.
 
 #### Parameters
 
--   `keyOrIndex` **([string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String) \| [number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number))** 
--   `indexOrDefaultValue` **any** 
+-   `keyOrTone` **([string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String) \| [number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number))** 
+-   `toneOrDefaultValue` **any** 
 -   `defaultValue` **any** 
 
 #### Examples
@@ -171,6 +171,7 @@ const theme = {
 const Button = styled.button`
   color: ${palette(1)};                    // props.theme.palette[props.palette][1]
   color: ${palette("primary", 1)};         // props.theme.palette.primary[1]
+  color: ${palette("primary")};            // props.theme.palette.primary[props.tone || 0]
   color: ${palette("primary", -1)};        // props.theme.palette.primary[3]
   color: ${palette("primary", 10)};        // props.theme.palette.primary[3]
   color: ${palette("primary", -10)};       // props.theme.palette.primary[0]

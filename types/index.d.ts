@@ -17,26 +17,30 @@ type ThemeWithPalette = {
 };
 
 interface Palette {
-  (index?: number): <Props, Theme extends ThemeWithPalette>(
-    props: Props & { theme: Theme; palette?: keyof Theme["palette"] }
+  (tone?: number): <Props, Theme extends ThemeWithPalette>(
+    props: Props & {
+      theme: Theme;
+      palette?: keyof Theme["palette"];
+      tone?: number;
+    }
   ) => any;
 
-  (index: number, defaultValue: any): <Props, Theme extends ThemeWithPalette>(
+  (tone: number, defaultValue: any): <Props, Theme extends ThemeWithPalette>(
     props: Props & { theme: Partial<Theme>; palette?: keyof Theme["palette"] }
   ) => any;
 
-  (key: string, index?: number): <Props, Theme extends ThemeWithPalette>(
-    props: Props & { theme: Theme }
+  (key: string, tone?: number): <Props, Theme extends ThemeWithPalette>(
+    props: Props & { theme: Theme; tone?: number }
   ) => any;
 
   (key: string, defaultValue?: Exclude<any, number>): <
     Props,
     Theme extends ThemeWithPalette
   >(
-    props: Props & { theme: Theme }
+    props: Props & { theme: Theme; tone?: number }
   ) => any;
 
-  (key: string, index: number, defaultValue?: Exclude<any, number>): <
+  (key: string, tone: number, defaultValue?: Exclude<any, number>): <
     Props,
     Theme extends ThemeWithPalette
   >(

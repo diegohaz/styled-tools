@@ -7,11 +7,12 @@ const theme = {
   }
 };
 
-test("only index", () => {
+test("only tone", () => {
   expect(palette()({ theme: {} })).toBeUndefined();
   expect(palette()({ theme })).toBeUndefined();
   expect(palette(0)({ theme })).toBeUndefined();
   expect(palette()({ theme, palette: "primary" })).toBe("primary0");
+  expect(palette()({ theme, palette: "primary", tone: 2 })).toBe("primary2");
   expect(palette(0)({ theme, palette: "primary" })).toBe("primary0");
   expect(palette(1)({ theme, palette: "primary" })).toBe("primary1");
   expect(palette(-1)({ theme, palette: "primary" })).toBe("primary2");
@@ -25,9 +26,10 @@ test("only index", () => {
   expect(palette(1, "foo")({ theme, palette: "other" })).toBe("foo");
 });
 
-test("palette and index", () => {
+test("palette and tone", () => {
   expect(palette("primary")({ theme: {} })).toBeUndefined();
   expect(palette("primary")({ theme })).toBe("primary0");
+  expect(palette("primary")({ theme, tone: 2 })).toBe("primary2");
   expect(palette("primary", 0)({ theme })).toBe("primary0");
   expect(palette("primary", 5)({ theme })).toBe("primary2");
   expect(palette("primary", -1)({ theme })).toBe("primary2");
