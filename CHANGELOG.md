@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.5.0"></a>
+# [1.5.0](https://github.com/diegohaz/styled-tools/compare/v1.4.3...v1.5.0) (2018-09-02)
+
+
+### Features
+
+* **palette:** Use `props.tone` if it wasn't passed in as argument ([ce36900](https://github.com/diegohaz/styled-tools/commit/ce36900))
+
+
+
 <a name="1.4.3"></a>
 ## [1.4.3](https://github.com/diegohaz/styled-tools/compare/v1.4.2...v1.4.3) (2018-08-31)
 
