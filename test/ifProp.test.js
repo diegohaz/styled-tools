@@ -23,6 +23,9 @@ test("array argument", () => {
   expect(ifProp(["foo", "bar"], "yes", "no")({ foo: true, bar: false })).toBe(
     "no"
   );
+  expect(
+    ifProp(["foo", "bar"], "yes", () => "no")({ foo: true, bar: false })
+  ).toBe("no");
 });
 
 test("deep array argument", () => {
@@ -41,6 +44,12 @@ test("function array argument", () => {
   expect(
     ifProp([props => props.foo], "yes", "no")({ bar: false, foo: true })
   ).toBe("yes");
+  expect(
+    ifProp(["bar", props => props.foo], "yes", () => "no")({
+      bar: false,
+      foo: true
+    })
+  ).toBe("no");
 });
 
 test("object array argument", () => {

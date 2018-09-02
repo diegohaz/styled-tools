@@ -25,6 +25,12 @@ const parseObject = (props: Object, test: Object): boolean => {
 const parseString = (props: Object, test: string): boolean =>
   Boolean(prop(test)(props));
 
+const parseMap = {
+  function: parseFunction,
+  object: parseObject,
+  string: parseString
+};
+
 /**
  * Returns `pass` if prop is truthy. Otherwise returns `fail`
  * @example
@@ -44,24 +50,19 @@ const ifProp = (
   pass: any = "",
   fail: any = ""
 ): PropsFn => (props = {}) => {
+  let result = true;
+
   if (Array.isArray(test)) {
     const { length } = test;
     let index = 0;
-    let value = pass;
-    while (value !== fail && index < length) {
-      value = ifProp(test[index], pass, fail)(props);
+    while (result && index < length) {
+      result = parseMap[typeof test[index]](props, test[index]);
       index += 1;
     }
-    return value;
+  } else {
+    result = parseMap[typeof test](props, test);
   }
 
-  const parseMap = {
-    function: parseFunction,
-    object: parseObject,
-    string: parseString
-  };
-
-  const result = parseMap[typeof test](props, test);
   const value = result ? pass : fail;
   return typeof value === "function" ? value(props) : value;
 };
