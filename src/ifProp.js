@@ -34,14 +34,12 @@ const parseMap = {
 /**
  * Returns `pass` if prop is truthy. Otherwise returns `fail`
  * @example
- * // usage with styled-theme
  * import styled from "styled-components";
- * import { ifProp } from "styled-tools";
- * import { palette } from "styled-theme";
+ * import { ifProp, palette } from "styled-tools";
  *
  * const Button = styled.button`
  *   background-color: ${ifProp("transparent", "transparent", palette(0))};
- *   color: ${ifProp(["transparent", "accent"], palette("secondary", 0))};
+ *   color: ${ifProp(["transparent", "accent"], palette("secondary"))};
  *   font-size: ${ifProp({ size: "large" }, "20px", ifProp({ size: "medium" }, "16px", "12px"))};
  * `;
  */

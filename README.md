@@ -196,14 +196,12 @@ Returns `pass` if prop is truthy. Otherwise returns `fail`
 #### Examples
 
 ```javascript
-// usage with styled-theme
 import styled from "styled-components";
-import { ifProp } from "styled-tools";
-import { palette } from "styled-theme";
+import { ifProp, palette } from "styled-tools";
 
 const Button = styled.button`
   background-color: ${ifProp("transparent", "transparent", palette(0))};
-  color: ${ifProp(["transparent", "accent"], palette("secondary", 0))};
+  color: ${ifProp(["transparent", "accent"], palette("secondary"))};
   font-size: ${ifProp({ size: "large" }, "20px", ifProp({ size: "medium" }, "16px", "12px"))};
 `;
 ```
@@ -303,9 +301,14 @@ Returns **PropsFn**
 
 #### Needle
 
-Type: ([string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String) \| [Function](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function))
+A Needle is used to map the props to a value. This can either be done with
+a path string `"theme.size.sm"` or with a function
+`(props) => props.theme.size.sm` (these two examples are equivalent).
 
-A Needle is used to map the props to a value. This can either be done with a path string `'theme.size.sm'` or with a function `(props) => props.theme.size.sm` (these two examples are equivalent). All of styled-tools can be used as Needles making it possible to do composition between functions. ie  `ifProp(theme('dark'), 'black', 'white')`
+All of styled-tools can be used as Needles making it possible to do
+composition between functions. ie `ifProp(theme("dark"), "black", "white")`
+
+Type: ([string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String) \| [Function](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function))
 
 ## License
 
