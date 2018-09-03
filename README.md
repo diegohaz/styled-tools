@@ -305,6 +305,8 @@ Returns **PropsFn**
 
 Type: ([string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String) \| [Function](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function))
 
+A Needle is used to map the props to a value. This can either be done with a path string `'theme.size.sm'` or with a function `(props) => props.theme.size.sm` (these two examples are equivalent). All of styled-tools can be used as Needles making it possible to do composition between functions. ie  `ifProp(theme('dark'), 'black', 'white')`
+
 ## License
 
 MIT © [Diego Haz](https://github.com/diegohaz)
