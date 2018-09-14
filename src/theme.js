@@ -13,11 +13,7 @@ import type { PropsWithTheme } from ".";
  *  color: ${theme("button.color", "red")};
  * `;
  */
-const theme = (path: string, defaultValue?: any) => (props: PropsWithTheme) => {
-  if (typeof props.theme[path] !== "undefined") {
-    return props.theme[path];
-  }
-  return prop(path, defaultValue)(props.theme);
-};
+const theme = (path: string, defaultValue?: any) => (props: PropsWithTheme) =>
+  prop(path, defaultValue)(props.theme);
 
 export default theme;
