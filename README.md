@@ -1,6 +1,5 @@
 # styled-tools 💅
 
-[![Generated with nod](https://img.shields.io/badge/generator-nod-2196F3.svg?style=flat-square)](https://github.com/diegohaz/nod)
 [![NPM version](https://img.shields.io/npm/v/styled-tools.svg?style=flat-square)](https://npmjs.org/package/styled-tools)
 [![NPM downloads](https://img.shields.io/npm/dm/styled-tools.svg?style=flat-square)](https://npmjs.org/package/styled-tools)
 [![Dependencies](https://img.shields.io/david/diegohaz/styled-tools/master.svg?style=flat-square)](https://david-dm.org/diegohaz/styled-tools)
