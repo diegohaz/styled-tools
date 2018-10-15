@@ -33,7 +33,10 @@ const switchProp = (
 ): PropsFn => (props = {}) => {
   const value =
     typeof needle === "function" ? needle(props) : prop(needle)(props);
-  return prop(value, defaultCase)(cases);
+  if (value in cases) {
+    return cases[value];
+  }
+  return defaultCase;
 };
 
 export default switchProp;
