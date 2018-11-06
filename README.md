@@ -263,7 +263,7 @@ Switches on a given prop. Returns the value or function for a given prop value.
 #### Parameters
 
 -   `needle` **[Needle](#needle)** 
--   `cases` **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** 
+-   `cases` **([Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object) | PropsFn)** 
 -   `defaultCase` **any** 
 
 #### Examples
@@ -278,7 +278,6 @@ const Button = styled.button`
     medium: prop("theme.sizes.md", "16px"),
     large: prop("theme.sizes.lg", "20px")
   }};
-  line-height: ${switchProp("size", theme("sizes"))}px;
   ${switchProp("theme.kind", {
     light: css`
       color: LightBlue;
