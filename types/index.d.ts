@@ -64,7 +64,7 @@ export function ifNotProp<Props, Pass = undefined, Fail = undefined>(
 
 export function switchProp<Props, T = undefined, DefaultCase = undefined>(
   needle: Needle<Props>,
-  cases: { [key: string]: T },
+  cases: { [key: string]: T } | ((props: Props) => { [key: string]: T }),
   defaultCase?: DefaultCase
 ): <P = Props>(props?: P) => T | DefaultCase;
 

@@ -56,6 +56,7 @@ switchProp("a", { a: true, b: 1 })({ a: "a" }) as undefined;
 switchProp("a", { a: true, b: 1 }, "a")({ a: "a" }) as boolean;
 switchProp("a", { a: true, b: 1 }, "a")({ a: "a" }) as number;
 switchProp("a", { a: true, b: 1 }, "a")({ a: "a" }) as string;
+switchProp("a", () => ({ a: "a" }))({ a: "a" }) as string;
 
 withProp("a", a => a)({ a: false }) as any;
 withProp("a", () => 1)({ a: false }) as number;
