@@ -33,8 +33,7 @@ const switchProp = (
 ): PropsFn => (props = {}) => {
   const value =
     typeof needle === "function" ? needle(props) : prop(needle)(props);
-  const finalCases =
-    typeof cases === "function" ? cases(props) : cases;
+  const finalCases = typeof cases === "function" ? cases(props) : cases;
   if (value in finalCases) {
     return finalCases[value];
   }

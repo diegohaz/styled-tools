@@ -42,3 +42,9 @@ test("default case", () => {
     switchProp("foo", { red: "red", blue: "blue" }, "green")({ foo: "foo" })
   ).toBe("green");
 });
+
+test("cases as a function", () => {
+  expect(
+    switchProp("foo", () => ({ red: "red", blue: "blue" }))({ foo: "blue" })
+  ).toBe("blue");
+});
