@@ -28,13 +28,14 @@ import type { Needle, PropsFn } from ".";
  */
 const switchProp = (
   needle: Needle,
-  cases: Object,
+  cases: Object | PropsFn,
   defaultCase: any
 ): PropsFn => (props = {}) => {
   const value =
     typeof needle === "function" ? needle(props) : prop(needle)(props);
-  if (value in cases) {
-    return cases[value];
+  const finalCases = typeof cases === "function" ? cases(props) : cases;
+  if (value in finalCases) {
+    return finalCases[value];
   }
   return defaultCase;
 };

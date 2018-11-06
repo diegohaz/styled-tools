@@ -278,6 +278,7 @@ const Button = styled.button`
     medium: prop("theme.sizes.md", "16px"),
     large: prop("theme.sizes.lg", "20px")
   }};
+  line-height: ${switchProp("size", theme("sizes"))}px;
   ${switchProp("theme.kind", {
     light: css`
       color: LightBlue;
