@@ -28,7 +28,7 @@ import type { Needle, PropsFn } from ".";
  */
 const switchProp = (
   needle: Needle,
-  cases: Object | Function,
+  cases: Object | PropsFn,
   defaultCase: any
 ): PropsFn => (props = {}) => {
   const value =
