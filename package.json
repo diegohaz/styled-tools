@@ -12,9 +12,6 @@
     "email": "hazdiego@gmail.com",
     "url": "https://github.com/diegohaz"
   },
-  "engines": {
-    "node": ">=6"
-  },
   "files": [
     "dist",
     "types"
