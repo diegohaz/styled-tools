@@ -51,8 +51,8 @@ const palette = (
     typeof keyOrTone === "number"
       ? keyOrTone
       : typeof toneOrDefaultValue === "number"
-        ? toneOrDefaultValue
-        : props.tone || 0;
+      ? toneOrDefaultValue
+      : props.tone || 0;
   const finalDefaultValue =
     toneOrDefaultValue !== tone ? toneOrDefaultValue : defaultValue;
 
