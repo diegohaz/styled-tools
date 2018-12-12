@@ -81,3 +81,26 @@ test("function values", () => {
     ifNotProp("foo", props => props.bar, props => props.foo)({ foo: "foo" })
   ).toBe("foo");
 });
+
+test("deep function argument", () => {
+  expect(ifNotProp(() => props => props.foo, "no", "yes")()).toBe("no");
+  expect(ifNotProp(() => props => props.foo, "no", "yes")({ foo: false })).toBe(
+    "no"
+  );
+  expect(ifNotProp(() => props => props.foo, "no", "yes")({ foo: true })).toBe(
+    "yes"
+  );
+});
+
+test("deep function values", () => {
+  expect(
+    ifNotProp("foo", () => props => props.bar, () => props => props.foo)({
+      bar: "bar"
+    })
+  ).toBe("bar");
+  expect(
+    ifNotProp("foo", () => props => props.bar, () => props => props.foo)({
+      foo: "foo"
+    })
+  ).toBe("foo");
+});

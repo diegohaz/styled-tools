@@ -1,4 +1,5 @@
 // @flow
+import resolveValue from "./resolveValue";
 import type { PropsFn } from ".";
 
 /**
@@ -13,7 +14,7 @@ import type { PropsFn } from ".";
  */
 const prop = (path: string, defaultValue?: any): PropsFn => (props = {}) => {
   if (typeof props[path] !== "undefined") {
-    return props[path];
+    return resolveValue(props[path], props);
   }
 
   if (path && path.indexOf(".") > 0) {
@@ -28,7 +29,7 @@ const prop = (path: string, defaultValue?: any): PropsFn => (props = {}) => {
     }
 
     if (typeof object !== "undefined") {
-      return object;
+      return resolveValue(object, props);
     }
   }
 

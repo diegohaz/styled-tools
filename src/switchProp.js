@@ -1,5 +1,6 @@
 // @flow
 import prop from "./prop";
+import resolveValue from "./resolveValue";
 import type { Needle, PropsFn } from ".";
 
 /**
@@ -32,10 +33,12 @@ const switchProp = (
   defaultCase: any
 ): PropsFn => (props = {}) => {
   const value =
-    typeof needle === "function" ? needle(props) : prop(needle)(props);
+    typeof needle === "function"
+      ? resolveValue(needle, props)
+      : prop(needle)(props);
   const finalCases = typeof cases === "function" ? cases(props) : cases;
   if (value in finalCases) {
-    return finalCases[value];
+    return resolveValue(finalCases[value], props);
   }
   return defaultCase;
 };

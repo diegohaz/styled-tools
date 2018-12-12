@@ -92,3 +92,38 @@ test("function values", () => {
     ifProp("foo", props => props.foo, props => props.bar)({ foo: "foo" })
   ).toBe("foo");
 });
+
+test("deep function argument", () => {
+  expect(ifProp(() => props => props.foo, "yes", "no")()).toBe("no");
+  expect(ifProp(() => props => props.foo, "yes", "no")({ foo: false })).toBe(
+    "no"
+  );
+  expect(ifProp(() => props => props.foo, "yes", "no")({ foo: true })).toBe(
+    "yes"
+  );
+});
+
+test("deep function values", () => {
+  expect(
+    ifProp("foo", () => props => props.foo, () => props => props.bar)({
+      bar: "bar"
+    })
+  ).toBe("bar");
+  expect(
+    ifProp("foo", () => props => props.foo, () => props => props.bar)({
+      foo: "foo"
+    })
+  ).toBe("foo");
+});
+
+test("deep function array argument", () => {
+  expect(
+    ifProp([() => props => props.foo], "yes", "no")({ bar: false, foo: true })
+  ).toBe("yes");
+  expect(
+    ifProp(["bar", () => props => props.foo], "yes", () => "no")({
+      bar: false,
+      foo: true
+    })
+  ).toBe("no");
+});
