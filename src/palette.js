@@ -61,7 +61,7 @@ const palette = (
     return finalDefaultValue;
   }
 
-  const tones = toArray(props.theme.palette[key]);
+  const tones = toArray(resolveValue(props.theme.palette[key], props));
 
   if (tone < 0) {
     return resolveValue(

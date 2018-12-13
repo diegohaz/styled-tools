@@ -25,7 +25,11 @@ const withProp = (needle: Needle | Needle[], fn: Function): PropsFn => (
     return fn(...needles);
   }
   if (typeof needle === "function") {
-    return fn(resolveValue(needle, props));
+    const value = resolveValue(needle, props);
+    if (Array.isArray(value)) {
+      return withProp(value, fn)(props);
+    }
+    return fn(value);
   }
   return fn(prop(needle)(props));
 };
