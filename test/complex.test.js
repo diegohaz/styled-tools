@@ -1,6 +1,6 @@
-import { palette as p, theme as t, Needle, withProp } from "../src";
 import { getLuminance, tint } from "polished";
 import { range } from "lodash";
+import { palette as p, theme as t, withProp } from "../src";
 
 export const contrastText = bgNeedle =>
   withProp(bgNeedle, bg =>
