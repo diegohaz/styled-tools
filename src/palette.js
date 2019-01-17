@@ -1,4 +1,5 @@
 // @flow
+import resolveValue from "./resolveValue";
 import type { PropsWithTheme } from ".";
 
 type Props = PropsWithTheme & {
@@ -60,13 +61,16 @@ const palette = (
     return finalDefaultValue;
   }
 
-  const tones = toArray(props.theme.palette[key]);
+  const tones = toArray(resolveValue(props.theme.palette[key], props));
 
   if (tone < 0) {
-    return tones[clamp(tones.length + tone, 0, tones.length - 1)];
+    return resolveValue(
+      tones[clamp(tones.length + tone, 0, tones.length - 1)],
+      props
+    );
   }
 
-  return tones[clamp(tone, 0, tones.length - 1)];
+  return resolveValue(tones[clamp(tone, 0, tones.length - 1)], props);
 };
 
 export default palette;
