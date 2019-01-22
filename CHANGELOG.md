@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.7.1"></a>
+## [1.7.1](https://github.com/diegohaz/styled-tools/compare/v1.7.0...v1.7.1) (2019-01-22)
+
+
+### Bug Fixes
+
+* Revert [#56](https://github.com/diegohaz/styled-tools/issues/56) ([#58](https://github.com/diegohaz/styled-tools/issues/58)) ([14ec733](https://github.com/diegohaz/styled-tools/commit/14ec733)), closes [#57](https://github.com/diegohaz/styled-tools/issues/57)
+
+
+
 <a name="1.7.0"></a>
 # [1.7.0](https://github.com/diegohaz/styled-tools/compare/v1.6.0...v1.7.0) (2019-01-17)
 
