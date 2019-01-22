@@ -8,14 +8,6 @@ test("string argument", () => {
   expect(
     switchProp("type", { red: "red", blue: "blue" })({ type: "blue" })
   ).toBe("blue");
-  expect(
-    switchProp("type", { red: "red", blue: "blue" })({ type: () => "red" })
-  ).toBe("red");
-  expect(
-    switchProp("type", { red: () => "red", blue: () => "blue" })({
-      type: "red"
-    })
-  ).toBe("red");
 });
 
 test("deep string argument", () => {
@@ -43,11 +35,6 @@ test("function argument", () => {
       type: "blue"
     })
   ).toBe("blue");
-  expect(
-    switchProp(() => props => props.type, { red: "red", blue: "blue" })({
-      type: "red"
-    })
-  ).toBe("red");
 });
 
 test("default case", () => {

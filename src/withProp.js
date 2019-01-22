@@ -1,6 +1,5 @@
 // @flow
 import prop from "./prop";
-import resolveValue from "./resolveValue";
 import type { Needle, PropsFn } from ".";
 
 /**
@@ -25,11 +24,7 @@ const withProp = (needle: Needle | Needle[], fn: Function): PropsFn => (
     return fn(...needles);
   }
   if (typeof needle === "function") {
-    const value = resolveValue(needle, props);
-    if (Array.isArray(value)) {
-      return withProp(value, fn)(props);
-    }
-    return fn(value);
+    return fn(needle(props));
   }
   return fn(prop(needle)(props));
 };
