@@ -1,16 +1,10 @@
 // @flow
 /* eslint-disable no-use-before-define */
 import prop from "./prop";
-import resolveValue from "./resolveValue";
 import type { Needle, PropsFn } from ".";
 
-const parseFunction = (props: Object, test: Function): boolean => {
-  const result = test(props);
-  if (typeof result === "function") {
-    return parseFunction(props, result);
-  }
-  return Boolean(result);
-};
+const parseFunction = (props: Object, test: Function): boolean =>
+  Boolean(test(props));
 
 const parseObject = (props: Object, test: Object): boolean => {
   const keys = Object.keys(test);
@@ -68,7 +62,7 @@ const ifProp = (
   }
 
   const value = result ? pass : fail;
-  return resolveValue(value, props);
+  return typeof value === "function" ? value(props) : value;
 };
 
 export default ifProp;

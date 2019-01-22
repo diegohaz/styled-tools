@@ -14,6 +14,6 @@ import type { PropsWithTheme } from ".";
  * `;
  */
 const theme = (path: string, defaultValue?: any) => (props: PropsWithTheme) =>
-  prop(`theme.${path}`, defaultValue)(props);
+  prop(path, defaultValue)(props.theme);
 
 export default theme;
