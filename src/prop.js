@@ -1,4 +1,5 @@
 // @flow
+import { get } from "./utils";
 import type { PropsFn } from ".";
 
 /**
@@ -16,20 +17,10 @@ const prop = (path: string, defaultValue?: any): PropsFn => (props = {}) => {
     return props[path];
   }
 
-  if (path && path.indexOf(".") > 0) {
-    const paths = path.split(".");
-    const { length } = paths;
-    let object = props[paths[0]];
-    let index = 1;
+  const object = get(props, path);
 
-    while (object != null && index < length) {
-      object = object[paths[index]];
-      index += 1;
-    }
-
-    if (typeof object !== "undefined") {
-      return object;
-    }
+  if (typeof object !== "undefined") {
+    return object;
   }
 
   return defaultValue;

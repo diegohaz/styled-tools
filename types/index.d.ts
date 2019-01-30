@@ -1,16 +1,25 @@
 type Needle<Props> = string | ((props?: Props) => any);
 
-export function prop<T = undefined>(
-  path: string,
-  defaultValue?: T
-): <Props>(props?: Props) => Props[keyof Props] | T;
+interface PropFunction {
+  <T = undefined>(path: string, defaultValue?: T): <Props>(
+    props?: Props
+  ) => Props[keyof Props] | T;
+}
 
-export function theme<T = undefined>(
-  path: string,
-  defaultValue?: T
-): <Props, Theme extends { [key: string]: any }>(
-  props: Props & { theme: Theme }
-) => Theme[keyof Theme] | T;
+export const prop: PropFunction;
+export const deepProp: PropFunction;
+
+interface ThemeFunction {
+  <T = undefined>(path: string, defaultValue?: T): <
+    Props,
+    Theme extends { [key: string]: any }
+  >(
+    props: Props & { theme: Theme }
+  ) => Theme[keyof Theme] | T;
+}
+
+export const theme: ThemeFunction;
+export const deepTheme: ThemeFunction;
 
 type ThemeWithPalette = {
   palette?: { [key: string]: any };
@@ -49,6 +58,7 @@ interface Palette {
 }
 
 export const palette: Palette;
+export const deepPalette: Palette;
 
 export function ifProp<Props, Pass = undefined, Fail = undefined>(
   test: Needle<Props> | Needle<Props>[] | { [key: string]: any },

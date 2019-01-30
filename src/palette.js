@@ -1,18 +1,6 @@
 // @flow
-import type { PropsWithTheme } from ".";
-
-type Props = PropsWithTheme & {
-  palette?: string,
-  tone?: number
-};
-
-const toArray = (arg: any) => (Array.isArray(arg) ? arg : [arg]);
-
-const clamp = (number: number, min: number, max: number) => {
-  if (number < min) return min;
-  if (number > max) return max;
-  return number;
-};
+import { getKey, getTone, getFinalDefaultValue, toArray, clamp } from "./utils";
+import type { PaletteProps } from "./utils";
 
 /**
  * Returns `props.theme.palette[key || props.palette][tone || props.tone || 0]` or `defaultValue`.
@@ -45,16 +33,14 @@ const palette = (
   keyOrTone?: string | number,
   toneOrDefaultValue?: any,
   defaultValue?: any
-) => (props: Props) => {
-  const key = typeof keyOrTone === "string" ? keyOrTone : props.palette;
-  const tone =
-    typeof keyOrTone === "number"
-      ? keyOrTone
-      : typeof toneOrDefaultValue === "number"
-      ? toneOrDefaultValue
-      : props.tone || 0;
-  const finalDefaultValue =
-    toneOrDefaultValue !== tone ? toneOrDefaultValue : defaultValue;
+) => (props: PaletteProps) => {
+  const key = getKey(keyOrTone, props);
+  const tone = getTone(keyOrTone, toneOrDefaultValue, props);
+  const finalDefaultValue = getFinalDefaultValue(
+    toneOrDefaultValue,
+    tone,
+    defaultValue
+  );
 
   if (!props.theme.palette || !props.theme.palette[key]) {
     return finalDefaultValue;
