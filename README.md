@@ -11,11 +11,11 @@ Useful interpolated functions for [styled-components](https://github.com/styled-
 
 npm:
 
-    $ npm i styled-tools
+    npm i styled-tools
     
 Yarn:
     
-    $ yarn add styled-tools
+    yarn add styled-tools
 
 ## Usage
 
