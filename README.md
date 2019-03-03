@@ -9,7 +9,13 @@ Useful interpolated functions for [styled-components](https://github.com/styled-
 
 ## Install
 
-    $ npm install --save styled-tools
+npm:
+
+    $ npm i styled-tools
+    
+Yarn:
+    
+    $ yarn add styled-tools
 
 ## Usage
 
