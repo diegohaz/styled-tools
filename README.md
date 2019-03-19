@@ -2,7 +2,7 @@
 
 [![NPM version](https://img.shields.io/npm/v/styled-tools.svg?style=flat-square)](https://npmjs.org/package/styled-tools)
 [![NPM downloads](https://img.shields.io/npm/dm/styled-tools.svg?style=flat-square)](https://npmjs.org/package/styled-tools)
-[![Dependencies](https://img.shields.io/david/diegohaz/styled-tools/master.svg?style=flat-square)](https://david-dm.org/diegohaz/styled-tools)
+[![Dependencies](https://img.shields.io/david/diegohaz/styled-tools.svg?style=flat-square)](https://david-dm.org/diegohaz/styled-tools)
 [![Build Status](https://img.shields.io/travis/diegohaz/styled-tools/master.svg?style=flat-square)](https://travis-ci.org/diegohaz/styled-tools) [![Coverage Status](https://img.shields.io/codecov/c/github/diegohaz/styled-tools/master.svg?style=flat-square)](https://codecov.io/gh/diegohaz/styled-tools/branch/master)
 
 Useful interpolated functions for [styled-components](https://github.com/styled-components/styled-components) 💅, [emotion](https://github.com/emotion-js/emotion) 👩‍🎤, [JSS](https://github.com/cssinjs/jss) and other CSS-in-JS libraries.
