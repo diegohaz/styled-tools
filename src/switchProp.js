@@ -13,7 +13,7 @@ import type { Needle, PropsFn } from ".";
  *     small: prop("theme.sizes.sm", "12px"),
  *     medium: prop("theme.sizes.md", "16px"),
  *     large: prop("theme.sizes.lg", "20px")
- *   }, prop("theme.sizes.md", "16px")};
+ *   }, prop("theme.sizes.md", "16px"))};
  *   ${switchProp("theme.kind", {
  *     light: css`
  *       color: LightBlue;
