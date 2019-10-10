@@ -12,9 +12,9 @@ Useful interpolated functions for [styled-components](https://github.com/styled-
 npm:
 
     npm i styled-tools
-    
+
 Yarn:
-    
+
     yarn add styled-tools
 
 ## Usage
@@ -264,7 +264,7 @@ Returns **PropsFn**
 
 ### switchProp
 
-Switches on a given prop. Returns the value or function for a given prop value.
+Switches on a given prop. Returns the value or function for a given prop value. Third parameter is default value.
 
 #### Parameters
 
@@ -283,7 +283,7 @@ const Button = styled.button`
     small: prop("theme.sizes.sm", "12px"),
     medium: prop("theme.sizes.md", "16px"),
     large: prop("theme.sizes.lg", "20px")
-  }};
+  }, prop("theme.sizes.md", "16px"))};
   ${switchProp("theme.kind", {
     light: css`
       color: LightBlue;
@@ -291,7 +291,7 @@ const Button = styled.button`
     dark: css`
       color: DarkBlue;
     `
-  })}
+  }, css`color: black;`)}
 `;
 
 <Button size="large" theme={{ kind: "light" }} />
