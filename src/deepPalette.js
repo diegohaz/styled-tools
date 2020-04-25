@@ -21,7 +21,7 @@ const deepPalette = (
 ) => (props: PaletteProps) => {
   const key = resolvePaletteKey(keyOrTone, props);
   const tone = getTone(keyOrTone, toneOrDefaultValue, props);
-  const finalDefaultValue = getFinalDefaultValue(
+  const finalDefaultValue = resolvePaletteDefaultValue(
     toneOrDefaultValue,
     tone,
     defaultValue
