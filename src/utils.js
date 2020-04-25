@@ -1,5 +1,5 @@
 // @flow
-import type { PropsWithTheme } from ".";
+import type { PaletteProps } from ".";
 
 export type PaletteProps = PropsWithTheme & {
   palette?: string,
