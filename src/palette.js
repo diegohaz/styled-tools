@@ -1,5 +1,11 @@
 // @flow
-import { getKey, getTone, getFinalDefaultValue, toArray, clamp } from "./utils";
+import {
+  resolvePaletteKey,
+  resolvePaletteTone,
+  resolvePaletteDefaultValue,
+  toArray,
+  clamp
+} from "./utils";
 import type { PaletteProps } from ".";
 
 /**
