@@ -1,6 +1,6 @@
 // @flow
 import { getKey, getTone, getFinalDefaultValue, toArray, clamp } from "./utils";
-import type { PaletteProps } from "./utils";
+import type { PaletteProps } from ".";
 
 /**
  * Returns `props.theme.palette[key || props.palette][tone || props.tone || 0]` or `defaultValue`.
