@@ -2,14 +2,20 @@
 
 [![NPM version](https://img.shields.io/npm/v/styled-tools.svg?style=flat-square)](https://npmjs.org/package/styled-tools)
 [![NPM downloads](https://img.shields.io/npm/dm/styled-tools.svg?style=flat-square)](https://npmjs.org/package/styled-tools)
-[![Dependencies](https://img.shields.io/david/diegohaz/styled-tools/master.svg?style=flat-square)](https://david-dm.org/diegohaz/styled-tools)
+[![Dependencies](https://img.shields.io/david/diegohaz/styled-tools.svg?style=flat-square)](https://david-dm.org/diegohaz/styled-tools)
 [![Build Status](https://img.shields.io/travis/diegohaz/styled-tools/master.svg?style=flat-square)](https://travis-ci.org/diegohaz/styled-tools) [![Coverage Status](https://img.shields.io/codecov/c/github/diegohaz/styled-tools/master.svg?style=flat-square)](https://codecov.io/gh/diegohaz/styled-tools/branch/master)
 
 Useful interpolated functions for [styled-components](https://github.com/styled-components/styled-components) 💅, [emotion](https://github.com/emotion-js/emotion) 👩‍🎤, [JSS](https://github.com/cssinjs/jss) and other CSS-in-JS libraries.
 
 ## Install
 
-    $ npm install --save styled-tools
+npm:
+
+    npm i styled-tools
+
+Yarn:
+
+    yarn add styled-tools
 
 ## Usage
 
@@ -258,7 +264,7 @@ Returns **PropsFn**
 
 ### switchProp
 
-Switches on a given prop. Returns the value or function for a given prop value.
+Switches on a given prop. Returns the value or function for a given prop value. Third parameter is default value.
 
 #### Parameters
 
@@ -277,7 +283,7 @@ const Button = styled.button`
     small: prop("theme.sizes.sm", "12px"),
     medium: prop("theme.sizes.md", "16px"),
     large: prop("theme.sizes.lg", "20px")
-  }};
+  }, prop("theme.sizes.md", "16px"))};
   ${switchProp("theme.kind", {
     light: css`
       color: LightBlue;
@@ -285,7 +291,7 @@ const Button = styled.button`
     dark: css`
       color: DarkBlue;
     `
-  })}
+  }, css`color: black;`)}
 `;
 
 <Button size="large" theme={{ kind: "light" }} />
