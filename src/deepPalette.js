@@ -1,7 +1,7 @@
 // @flow
 import {
   resolvePaletteKey,
-  getTone,
+  resolvePaletteTone,
   getFinalDefaultValue,
   toArray,
   clamp,
