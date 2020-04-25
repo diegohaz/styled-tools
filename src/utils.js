@@ -41,7 +41,7 @@ export const clamp = (number: number, min: number, max: number) => {
 export const resolvePaletteKey = (keyOrTone?: string | number, props: PaletteProps) =>
   typeof keyOrTone === "string" ? keyOrTone : props.palette;
 
-export const getTone = (
+export const resolvePaletteTone = (
   keyOrTone?: string | number,
   toneOrDefaultValue?: any,
   props: PaletteProps
