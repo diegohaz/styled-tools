@@ -52,7 +52,7 @@ export const getTone = (
     ? toneOrDefaultValue
     : props.tone || 0;
 
-export const getFinalDefaultValue = (
+export const resolvePaletteDefaultValue = (
   toneOrDefaultValue?: any,
   tone: number,
   defaultValue?: any
