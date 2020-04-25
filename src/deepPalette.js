@@ -19,7 +19,7 @@ const deepPalette = (
   toneOrDefaultValue?: any,
   defaultValue?: any
 ) => (props: PaletteProps) => {
-  const key = getKey(keyOrTone, props);
+  const key = resolvePaletteKey(keyOrTone, props);
   const tone = getTone(keyOrTone, toneOrDefaultValue, props);
   const finalDefaultValue = getFinalDefaultValue(
     toneOrDefaultValue,
