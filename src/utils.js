@@ -1,11 +1,6 @@
 // @flow
 import type { PaletteProps } from ".";
 
-export type PaletteProps = PropsWithTheme & {
-  palette?: string,
-  tone?: number
-};
-
 export function get(props: {}, path: string) {
   if (path && path.indexOf(".") > 0) {
     const paths = path.split(".");
@@ -38,8 +33,10 @@ export const clamp = (number: number, min: number, max: number) => {
   return number;
 };
 
-export const resolvePaletteKey = (keyOrTone?: string | number, props: PaletteProps) =>
-  typeof keyOrTone === "string" ? keyOrTone : props.palette;
+export const resolvePaletteKey = (
+  keyOrTone?: string | number,
+  props: PaletteProps
+) => (typeof keyOrTone === "string" ? keyOrTone : props.palette);
 
 export const resolvePaletteTone = (
   keyOrTone?: string | number,

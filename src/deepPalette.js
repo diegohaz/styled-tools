@@ -7,7 +7,7 @@ import {
   clamp,
   resolveValue
 } from "./utils";
-import type { PaletteProps } from "./utils";
+import type { PaletteProps } from ".";
 
 /**
  * Returns `props.theme.palette[key || props.palette][tone || props.tone || 0]` or `defaultValue`.
