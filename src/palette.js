@@ -42,7 +42,7 @@ const palette = (
 ) => (props: PaletteProps) => {
   const key = resolvePaletteKey(keyOrTone, props);
   const tone = resolvePaletteTone(keyOrTone, toneOrDefaultValue, props);
-  const finalDefaultValue = getFinalDefaultValue(
+  const finalDefaultValue = resolvePaletteDefaultValue(
     toneOrDefaultValue,
     tone,
     defaultValue
