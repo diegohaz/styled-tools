@@ -2,7 +2,7 @@
 import {
   resolvePaletteKey,
   resolvePaletteTone,
-  getFinalDefaultValue,
+  resolvePaletteDefaultValue,
   toArray,
   clamp,
   resolveValue
