@@ -50,7 +50,7 @@ ifNotProp("a", 1, 2)({ a: true }) as number;
 ifNotProp("a", "a")({ a: true }) as string;
 ifNotProp("a", "a")({ a: true }) as undefined;
 ifNotProp("a")({ a: true }) as undefined;
-ifNotProp("a", ifProp("b", "5", "0"), ifProp("c", "5", "0"))({ a: false, b: true, c: false }) as string;
+ifNotProp("a", ifNotProp("b", "5", "0"), ifNotProp("c", "5", "0"))({ a: false, b: true, c: false }) as string;
 
 switchProp("a", { a: true, b: 1 })({ a: "a" }) as boolean;
 switchProp("a", { a: true, b: 1 })({ a: "a" }) as number;
