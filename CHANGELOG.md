@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.7.2"></a>
+## [1.7.2](https://github.com/diegohaz/styled-tools/compare/v1.7.1...v1.7.2) (2020-06-23)
+
+
+### Bug Fixes
+
+* Update typings to handle nested ifProp ([#80](https://github.com/diegohaz/styled-tools/issues/80)) ([85a02ff](https://github.com/diegohaz/styled-tools/commit/85a02ff))
+
+
+
 <a name="1.7.1"></a>
 ## [1.7.1](https://github.com/diegohaz/styled-tools/compare/v1.7.0...v1.7.1) (2019-01-22)
 
