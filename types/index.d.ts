@@ -54,13 +54,17 @@ export function ifProp<Props, Pass = undefined, Fail = undefined>(
   test: Needle<Props> | Needle<Props>[] | { [key: string]: any },
   pass?: Pass,
   fail?: Fail
-): <P = Props>(props?: P) => Pass extends Function ? ReturnType<Pass> : Pass | Fail extends Function ? ReturnType<Fail> : Fail;
+): <P = Props>(props?: P) =>
+  (Pass extends (...args: any) => any ? ReturnType<Pass> : Pass ) 
+  | (Fail extends (...args: any) => any ? ReturnType<Fail> : Fail);
 
 export function ifNotProp<Props, Pass = undefined, Fail = undefined>(
   test: Needle<Props> | Needle<Props>[] | { [key: string]: any },
   pass?: Pass,
   fail?: Fail
-): <P = Props>(props?: P) => Pass extends Function ? ReturnType<Pass> : Pass | Fail extends Function ? ReturnType<Fail> : Fail;
+): <P = Props>(props?: P) =>
+  (Pass extends (...args: any) => any ? ReturnType<Pass> : Pass) 
+  | (Fail extends (...args: any) => any ? ReturnType<Fail> : Fail);
 
 export function switchProp<Props, T = undefined, DefaultCase = undefined>(
   needle: Needle<Props>,
