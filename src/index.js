@@ -1,3 +1,6 @@
+export deepPalette from "./deepPalette";
+export deepProp from "./deepProp";
+export deepTheme from "./deepTheme";
 export ifNotProp from "./ifNotProp";
 export ifProp from "./ifProp";
 export prop from "./prop";

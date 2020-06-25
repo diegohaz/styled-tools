@@ -13,3 +13,8 @@ export type Needle = string | Function;
 export type PropsFn = (props?: Object) => any;
 
 export type PropsWithTheme = { theme: { [x: string]: any } };
+
+export type PaletteProps = PropsWithTheme & {
+  palette?: string,
+  tone?: number
+};
