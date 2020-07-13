@@ -67,7 +67,7 @@
     "react": "16.7.0",
     "react-dom": "16.7.0",
     "rimraf": "2.6.3",
-    "standard-version": "4.4.0",
+    "standard-version": "8.0.1",
     "styled-tools": "1.6.0",
     "typescript": "3.2.2"
   }
