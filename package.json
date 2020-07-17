@@ -60,7 +60,7 @@
     "eslint-plugin-prettier": "3.0.1",
     "flow-bin": "0.90.0",
     "jest-cli": "23.6.0",
-    "lodash": "4.17.13",
+    "lodash": "4.17.19",
     "opn-cli": "4.0.0",
     "polished": "2.3.3",
     "prettier": "1.15.3",
